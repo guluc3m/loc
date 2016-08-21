@@ -1,7 +1,7 @@
 /admin/matches
 ==============
 
-.. http:get:: /matches
+.. http:get:: /admin/matches
 
     Obtain a list of Matches that have taken place or are currently taking place.
 

@@ -1,7 +1,7 @@
 /admin/matches/<id>/update
 ==========================
 
-.. http:post:: /matches/(int: id)/update
+.. http:post:: /admin/matches/(int: id)/update
 
     Modify the details of a match.
 

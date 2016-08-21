@@ -1,7 +1,7 @@
 /admin/matches/<id>
 ===================
 
-.. http:get:: /matches/(int: id)
+.. http:get:: /admin/matches/(int: id)
 
     Obtain complete details for a match.
 
