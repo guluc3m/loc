@@ -12,6 +12,7 @@ Contents:
    :maxdepth: 2
 
    api/index
+   models/index
 
 
 Indices and tables

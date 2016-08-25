@@ -1,0 +1,183 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>User &mdash; LoC 0.0.1 documentation</title>
+    
+    <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
+    <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    '../',
+        VERSION:     '0.0.1',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="../_static/jquery.js"></script>
+    <script type="text/javascript" src="../_static/underscore.js"></script>
+    <script type="text/javascript" src="../_static/doctools.js"></script>
+    <link rel="top" title="LoC 0.0.1 documentation" href="../index.html" />
+    <link rel="up" title="LoC Models" href="index.html" />
+    <link rel="next" title="UserRole" href="user_role.html" />
+    <link rel="prev" title="Role" href="role.html" />
+   
+  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=0.9, maximum-scale=0.9" />
+
+  </head>
+  <body role="document">
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="user">
+<h1>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h1>
+<p>This model represents user accounts in the platform (including administrator
+ones). Note that session management is performed by means of a JWT token
+obtained through the <a class="reference internal" href="../api/users/login.html"><span class="doc">/login</span></a> endpoint.</p>
+<dl class="class">
+<dt id="User">
+<em class="property">class </em><code class="descname">User</code><a class="headerlink" href="#User" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="User.id">
+<code class="descname">id</code><a class="headerlink" href="#User.id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> (primary key)</p>
+<p>Unique ID of the User</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.username">
+<code class="descname">username</code><a class="headerlink" href="#User.username" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Unique username of the User</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.email">
+<code class="descname">email</code><a class="headerlink" href="#User.email" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Unique email of the User. Communication with the user will be performed
+through this address (e.g. restoring a password)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.password">
+<code class="descname">password</code><a class="headerlink" href="#User.password" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Stored password of the User (hashed)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.name">
+<code class="descname">name</code><a class="headerlink" href="#User.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Optional real name of the User</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.score">
+<code class="descname">score</code><a class="headerlink" href="#User.score" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em></p>
+<p>Total score obtained by participating in matches</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.password_reset_token">
+<code class="descname">password_reset_token</code><a class="headerlink" href="#User.password_reset_token" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em></p>
+<p><strong>Generated on demand</strong>. This token is used to restore the password.
+It must be <strong>unique and 32 characters long</strong></p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.token_expiration">
+<code class="descname">token_expiration</code><a class="headerlink" href="#User.token_expiration" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>date</em></p>
+<p>Date(time) in which the <a class="reference internal" href="#User.password_reset_token" title="User.password_reset_token"><code class="xref py py-attr docutils literal"><span class="pre">password_reset_token</span></code></a> expires and a
+new one has to be generated</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.is_deleted">
+<code class="descname">is_deleted</code><a class="headerlink" href="#User.is_deleted" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>boolean</em></p>
+<p>Whether the user record has been deleted or not (soft delete)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="User.delete_date">
+<code class="descname">delete_date</code><a class="headerlink" href="#User.delete_date" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>date</em></p>
+<p>When the user record was <em>deleted</em> (soft delete)</p>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper"><div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="../index.html">Documentation overview</a><ul>
+  <li><a href="index.html">LoC Models</a><ul>
+      <li>Previous: <a href="role.html" title="previous chapter">Role</a></li>
+      <li>Next: <a href="user_role.html" title="next chapter">UserRole</a></li>
+  </ul></li>
+  </ul></li>
+</ul>
+</div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/models/user.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3>Quick search</h3>
+    <form class="search" action="../search.html" method="get">
+      <div><input type="text" name="q" /></div>
+      <div><input type="submit" value="Go" /></div>
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &copy;2016, GUL UC3M.
+      
+      |
+      Powered by <a href="http://sphinx-doc.org/">Sphinx 1.4.5</a>
+      &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
+      
+      |
+      <a href="../_sources/models/user.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>

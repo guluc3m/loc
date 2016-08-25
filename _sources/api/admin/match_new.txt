@@ -1,11 +1,9 @@
-/admin/matches/<id>/update
-==========================
+/admin/matches/new
+==================
 
-.. http:post:: /admin/matches/(int: id)/update
+.. http:post:: /admin/matches/new
 
-    Modify the details of a match.
-
-    :param int id: unique id of the match
+    Create a new match.
 
     :<json string token: JWT token of the active user session
     :<json string title: title of the match
@@ -25,15 +23,14 @@
     :<json int max_team: maximum number of participants for each team
     :<json boolean visible: whether the match is visible to the public or not
 
-    :status 200: when record was found; returns updated match details
+    :status 201: when record is created correctly; returns new match details
     :status 401: when the user does not have the required admin role
-    :status 404: when record was not found or it was deleted
 
     **Example request**:
 
     .. sourcecode:: http
 
-        POST /admin/matches/42/update HTTP/1.1
+        POST /admin/matches/new HTTP/1.1
         Host: example.com
         Accept: application/json
         Content-Type: application/json
@@ -41,31 +38,31 @@
         {
             "token": "JWT_TOKEN",
 
-            "title": "UPDATED Practice match",
-            "description": "This is a practice match, UPDATED",
+            "title": "NEW Practice match",
+            "description": "This is a practice match, NEW",
             "start_date": "2016-04-23T18:25:43.511Z",
             "end_date": "2016-05-15T18:25:43.511Z",
             "min_team": 1,
             "max_team": 1,
-            "visible": true
+            "visible": false
         }
 
     **Example response**:
 
     .. sourcecode:: http
 
-        HTTP/1.1 200 OK
+        HTTP/1.1 201 OK
         Content-Type: application/json
 
         {
             "id": 42,
 
-            "title": "UPDATED Practice match",
-            "description": "This is a practice match, UPDATED",
+            "title": "NEW Practice match",
+            "description": "This is a practice match, NEW",
             "start_date": "2016-04-23T18:25:43.511Z",
             "end_date": "2016-05-15T18:25:43.511Z",
             "min_team": 1,
             "max_team": 1,
-            "visible": true
+            "visible": false
         }
 
