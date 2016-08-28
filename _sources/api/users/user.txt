@@ -1,5 +1,5 @@
-/users
-======
+/users/<user>
+=============
 
 .. http:get:: /users/(string: username)
 

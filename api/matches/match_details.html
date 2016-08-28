@@ -25,7 +25,7 @@
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="LoC 0.0.1 documentation" href="../../index.html" />
     <link rel="up" title="Matches API" href="index.html" />
-    <link rel="next" title="Users API" href="../users/index.html" />
+    <link rel="next" title="/matches/&lt;id&gt;/enter" href="match_enter.html" />
     <link rel="prev" title="/matches" href="matches.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
@@ -61,7 +61,10 @@
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
 <li><strong>id</strong> (<em>int</em>) &#8211; unique id of the match</li>
 <li><strong>title</strong> (<em>string</em>) &#8211; title of the match</li>
-<li><strong>description</strong> (<em>string</em>) &#8211; long description of the match (Markdown enabled)</li>
+<li><strong>short_description</strong> (<em>string</em>) &#8211; short description of the match</li>
+<li><strong>long_description</strong> (<em>string</em>) &#8211; long description of the match.
+This is Markdown enabled, but will be empty unless the match has
+already started</li>
 <li><strong>start_date</strong> (<em>date</em>) &#8211; start date of the match</li>
 <li><strong>end_date</strong> (<em>date</em>) &#8211; end date of the match</li>
 <li><strong>min_team</strong> (<em>int</em>) &#8211; minimum number of participants for each team</li>
@@ -91,7 +94,8 @@
 <span class="p">{</span>
     <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
     <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Practice match&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a practice match&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;short_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a practice match&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;long_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a practice match. LONG DESC&quot;</span><span class="p">,</span>
     <span class="nt">&quot;start_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-15T18:25:43.511Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;min_team&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
@@ -115,7 +119,7 @@
   <li><a href="../index.html">LoC API</a><ul>
   <li><a href="index.html">Matches API</a><ul>
       <li>Previous: <a href="matches.html" title="previous chapter">/matches</a></li>
-      <li>Next: <a href="../users/index.html" title="next chapter">Users API</a></li>
+      <li>Next: <a href="match_enter.html" title="next chapter">/matches/&lt;id&gt;/enter</a></li>
   </ul></li>
   </ul></li>
   </ul></li>

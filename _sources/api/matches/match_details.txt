@@ -9,7 +9,10 @@
 
     :>json int id: unique id of the match
     :>json string title: title of the match
-    :>json string description: long description of the match (Markdown enabled)
+    :>json string short_description: short description of the match
+    :>json string long_description: long description of the match.
+        This is Markdown enabled, but will be empty unless the match has
+        already started
     :>json date start_date: start date of the match
     :>json date end_date: end date of the match
     :>json int min_team: minimum number of participants for each team
@@ -37,7 +40,8 @@
         {
             "id": 42,
             "title": "Practice match",
-            "description": "This is a practice match",
+            "short_description": "This is a practice match",
+            "long_description": "This is a practice match. LONG DESC",
             "start_date": "2016-04-23T18:25:43.511Z",
             "end_date": "2016-05-15T18:25:43.511Z",
             "min_team": 2,

@@ -6,3 +6,4 @@ Matches API
 
    matches
    match_details
+   match_enter

@@ -13,6 +13,7 @@ Contents:
 
    api/index
    models/index
+   db_relations
 
 
 Indices and tables

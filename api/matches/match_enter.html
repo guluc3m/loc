@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>/signup &mdash; LoC 0.0.1 documentation</title>
+    <title>/matches/&lt;id&gt;/enter &mdash; LoC 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -24,9 +24,9 @@
     <script type="text/javascript" src="../../_static/underscore.js"></script>
     <script type="text/javascript" src="../../_static/doctools.js"></script>
     <link rel="top" title="LoC 0.0.1 documentation" href="../../index.html" />
-    <link rel="up" title="Users API" href="index.html" />
-    <link rel="next" title="/users/&lt;user&gt;" href="user.html" />
-    <link rel="prev" title="/reset-password/&lt;token&gt;" href="reset_password_token.html" />
+    <link rel="up" title="Matches API" href="index.html" />
+    <link rel="next" title="Users API" href="../users/index.html" />
+    <link rel="prev" title="/matches/&lt;id&gt;" href="match_details.html" />
    
   <link rel="stylesheet" href="../../_static/custom.css" type="text/css" />
   
@@ -42,58 +42,55 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="signup">
-<h1>/signup<a class="headerlink" href="#signup" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matches-id-enter">
+<h1>/matches/&lt;id&gt;/enter<a class="headerlink" href="#matches-id-enter" title="Permalink to this headline">¶</a></h1>
+<p>TODO: add error status code</p>
 <dl class="post">
-<dt id="post--signup">
-<code class="descname">POST </code><code class="descname">/signup</code><a class="headerlink" href="#post--signup" title="Permalink to this definition">¶</a></dt>
-<dd><p>Create a new user record in the server.</p>
-<p>Also performs login automatically.</p>
+<dt id="post--matches-(int- id)-enter">
+<code class="descname">POST </code><code class="descname">/matches/(int: id)/enter</code><a class="headerlink" href="#post--matches-(int- id)-enter" title="Permalink to this definition">¶</a></dt>
+<dd><p>Enter a match.</p>
+<p>Participants need a team to enter a match. These teams are created on demand
+when entering a match and each user, except for the one that created the team,
+receives an invitation to participate as part of the team.</p>
+<p>Only when all members have accepted is the team participating in the match.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
-<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>username</strong> (<em>string</em>) &#8211; the username for the new user (<strong>unique</strong>)</li>
-<li><strong>email</strong> (<em>string</em>) &#8211; the email for the new user (<strong>unique</strong>)</li>
-<li><strong>password</strong> (<em>string</em>) &#8211; password for the new user in the login</li>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> (<em>int</em>) &#8211; unique id of the match</li>
 </ul>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name" colspan="2">Response JSON Object:</th></tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>token</strong> (<em>string</em>) &#8211; JWT token for the user session</li>
+<li><strong>token</strong> (<em>string</em>) &#8211; JWT token of the active user session</li>
+<li><strong>members</strong> (<em>list[string]</em>) &#8211; list of usernames (without the user creating the
+team) to invite to the team</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.2">201 Created</a> &#8211; when user is created correctly; returns the JWT token</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.10">409 Conflict</a> &#8211; when an user with the specified username/email already exists</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; when user is logged in and all the users are available</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; when the user is not logged in</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/signup</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">POST</span> <span class="nn">/matches/42/enter</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 
 <span class="p">{</span>
-    <span class="nt">&quot;username&quot;</span><span class="p">:</span> <span class="s2">&quot;test_user&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;email&quot;</span><span class="p">:</span> <span class="s2">&quot;my_email@example.com&quot;</span><span class="p">,</span>
-    <span class="nt">&quot;password&quot;</span><span class="p">:</span> <span class="s2">&quot;mypassword&quot;</span>
-<span class="p">}</span>
-</pre></div>
-</div>
-<p><strong>Example response</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">201</span> <span class="ne">OK</span>
-<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
-
-<span class="p">{</span>
-    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT_TOKEN&quot;</span>
+    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT_TOKEN&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;members&quot;</span><span class="p">:</span> <span class="p">[</span>
+        <span class="s2">&quot;user1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;user3&quot;</span>
+    <span class="p">]</span>
 <span class="p">}</span>
 </pre></div>
 </div>
@@ -111,9 +108,9 @@
 <ul>
   <li><a href="../../index.html">Documentation overview</a><ul>
   <li><a href="../index.html">LoC API</a><ul>
-  <li><a href="index.html">Users API</a><ul>
-      <li>Previous: <a href="reset_password_token.html" title="previous chapter">/reset-password/&lt;token&gt;</a></li>
-      <li>Next: <a href="user.html" title="next chapter">/users/&lt;user&gt;</a></li>
+  <li><a href="index.html">Matches API</a><ul>
+      <li>Previous: <a href="match_details.html" title="previous chapter">/matches/&lt;id&gt;</a></li>
+      <li>Next: <a href="../users/index.html" title="next chapter">Users API</a></li>
   </ul></li>
   </ul></li>
   </ul></li>
@@ -122,7 +119,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/api/users/signup.txt"
+      <li><a href="../../_sources/api/matches/match_enter.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -148,7 +145,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../../_sources/api/users/signup.txt"
+      <a href="../../_sources/api/matches/match_enter.txt"
           rel="nofollow">Page source</a>
     </div>
 
