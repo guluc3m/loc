@@ -234,7 +234,7 @@ dummy:
 
 gh-pages:
 	git checkout gh-pages
-	rm -rf build _sources _static api
+	rm -rf build _sources _static _images api models images
 	git checkout master $(GH_PAGES_SRC)
 	git reset HEAD
 	make html
