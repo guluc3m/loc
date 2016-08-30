@@ -11,9 +11,7 @@
     :<json string email: the email for the new user (**unique**)
     :<json string password: password for the new user in the login
 
-    :>json string token: JWT token for the user session
-
-    :status 201: when user is created correctly; returns the JWT token
+    :status 201: when user is created correctly
     :status 409: when an user with the specified username/email already exists
 
     **Example request**:
@@ -37,7 +35,3 @@
 
         HTTP/1.1 201 OK
         Content-Type: application/json
-
-        {
-            "token": "JWT_TOKEN"
-        }
