@@ -7,6 +7,7 @@
 
     :<json string username: the username for which to start a session
     :<json string password: password to use in the login
+    :<json string remember_me: whether or not the session should remain active
 
     :>json string token: JWT token for the user session
 
@@ -24,7 +25,8 @@
 
         {
             "username": "test_user",
-            "password": "mypassword"
+            "password": "mypassword",
+            "remember_me": false
         }
 
     **Example response**:
