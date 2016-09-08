@@ -1,9 +1,16 @@
 User
 ====
 
-This model represents user accounts in the platform (including administrator
-ones). Note that session management is performed by means of a JWT token
-obtained through the :doc:`/api/users/login` endpoint.
+User accounts in the platform (including administrator ones). Note that session
+management is performed by means of a JWT token obtained through the
+:doc:`/api/users/login` endpoint.
+
+User roles are registered in the `user_roles` database relationship, and are
+checked on certain operations.
+
+Users can follow other users. Followers can see matches in which other users
+have participated. This is is done through the `followers` database
+relationship.
 
 .. py:class:: User
 
@@ -31,12 +38,6 @@ obtained through the :doc:`/api/users/login` endpoint.
       *string*
 
       Stored password of the User (hashed)
-
-   .. py:attribute:: name
-
-      *string*
-
-      Optional real name of the User
 
    .. py:attribute:: score
 
