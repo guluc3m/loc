@@ -1,7 +1,20 @@
 Match
 =====
 
-This model represents matches in the platform.
+Matches are programming contests created by the administrators of the platform.
+Each match has three main periods:
+
+- **Preparation**: from the moment the match is published to the beginning of
+  the match (see :py:attr:`start_date`), users can register in matches as
+  part of a team in order to participate
+- **Match**: from the beginning to the end of the match (see
+  :py:attr:`start_date` and :py:attr:`end_date`), teams can view the full
+  description of the problem and submit their solutions. No more teams
+  can enter the match at this point
+- **Evaluation**: after the end of the match (see :py:attr:`end_date`),
+  administrators evaluate the submissions and teams are given a score
+  accordingly
+
 
 .. py:class:: Match
 
@@ -60,7 +73,13 @@ This model represents matches in the platform.
 
       Maximum number of participants in a team
 
-   .. py:attribute:: visible
+   .. py:attribute:: slug
+
+      *string*
+
+      Unique slug created from the title of the match (useful for pretty URLs)
+
+   .. py:attribute:: is_visible
 
       *boolean*
 

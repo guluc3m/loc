@@ -26,7 +26,7 @@
     <link rel="top" title="LoC 0.0.1 documentation" href="../index.html" />
     <link rel="up" title="LoC Models" href="index.html" />
     <link rel="next" title="Role" href="role.html" />
-    <link rel="prev" title="LoC Models" href="index.html" />
+    <link rel="prev" title="Loadout" href="loadout.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -44,7 +44,20 @@
             
   <div class="section" id="match">
 <h1>Match<a class="headerlink" href="#match" title="Permalink to this headline">¶</a></h1>
-<p>This model represents matches in the platform.</p>
+<p>Matches are programming contests created by the administrators of the platform.
+Each match has three main periods:</p>
+<ul class="simple">
+<li><strong>Preparation</strong>: from the moment the match is published to the beginning of
+the match (see <code class="xref py py-attr docutils literal"><span class="pre">start_date</span></code>), users can register in matches as
+part of a team in order to participate</li>
+<li><strong>Match</strong>: from the beginning to the end of the match (see
+<code class="xref py py-attr docutils literal"><span class="pre">start_date</span></code> and <code class="xref py py-attr docutils literal"><span class="pre">end_date</span></code>), teams can view the full
+description of the problem and submit their solutions. No more teams
+can enter the match at this point</li>
+<li><strong>Evaluation</strong>: after the end of the match (see <code class="xref py py-attr docutils literal"><span class="pre">end_date</span></code>),
+administrators evaluate the submissions and teams are given a score
+accordingly</li>
+</ul>
 <dl class="class">
 <dt id="Match">
 <em class="property">class </em><code class="descname">Match</code><a class="headerlink" href="#Match" title="Permalink to this definition">¶</a></dt>
@@ -111,8 +124,15 @@ and submissions are accepted)</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Match.visible">
-<code class="descname">visible</code><a class="headerlink" href="#Match.visible" title="Permalink to this definition">¶</a></dt>
+<dt id="Match.slug">
+<code class="descname">slug</code><a class="headerlink" href="#Match.slug" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Unique slug created from the title of the match (useful for pretty URLs)</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Match.is_visible">
+<code class="descname">is_visible</code><a class="headerlink" href="#Match.is_visible" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>boolean</em></p>
 <p>Whether the match has been published or not</p>
 </dd></dl>
@@ -145,7 +165,7 @@ and submissions are accepted)</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">LoC Models</a><ul>
-      <li>Previous: <a href="index.html" title="previous chapter">LoC Models</a></li>
+      <li>Previous: <a href="loadout.html" title="previous chapter">Loadout</a></li>
       <li>Next: <a href="role.html" title="next chapter">Role</a></li>
   </ul></li>
   </ul></li>

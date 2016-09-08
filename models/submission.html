@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>LoC Models &mdash; LoC 0.0.1 documentation</title>
+    <title>Submission &mdash; LoC 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -24,8 +24,9 @@
     <script type="text/javascript" src="../_static/underscore.js"></script>
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="LoC 0.0.1 documentation" href="../index.html" />
-    <link rel="next" title="Loadout" href="loadout.html" />
-    <link rel="prev" title="/users/&lt;user&gt;/matches" href="../api/users/user_matches.html" />
+    <link rel="up" title="LoC Models" href="index.html" />
+    <link rel="next" title="Team" href="team.html" />
+    <link rel="prev" title="Role" href="role.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -41,18 +42,52 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="loc-models">
-<h1>LoC Models<a class="headerlink" href="#loc-models" title="Permalink to this headline">¶</a></h1>
-<div class="toctree-wrapper compound">
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="loadout.html">Loadout</a></li>
-<li class="toctree-l1"><a class="reference internal" href="match.html">Match</a></li>
-<li class="toctree-l1"><a class="reference internal" href="role.html">Role</a></li>
-<li class="toctree-l1"><a class="reference internal" href="submission.html">Submission</a></li>
-<li class="toctree-l1"><a class="reference internal" href="team.html">Team</a></li>
-<li class="toctree-l1"><a class="reference internal" href="user.html">User</a></li>
-</ul>
-</div>
+  <div class="section" id="submission">
+<h1>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h1>
+<p>Contains the basic information of a project submitted by one team.</p>
+<dl class="class">
+<dt id="Team">
+<em class="property">class </em><code class="descname">Team</code><a class="headerlink" href="#Team" title="Permalink to this definition">¶</a></dt>
+<dd><dl class="attribute">
+<dt id="Team.id">
+<code class="descname">id</code><a class="headerlink" href="#Team.id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> (primary key)</p>
+<p>Unique ID of the Submission</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Team.title">
+<code class="descname">title</code><a class="headerlink" href="#Team.title" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Title of the project. Try to be creative!</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Team.description">
+<code class="descname">description</code><a class="headerlink" href="#Team.description" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Description of the project. May be used to show the basic idea behind the
+project</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Team.url">
+<code class="descname">url</code><a class="headerlink" href="#Team.url" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Url to the project source code. This may be a repository or a meta site
+that includes a presentation of the project, or instructions, in
+addition to the source code</p>
+</dd></dl>
+
+<dl class="attribute">
+<dt id="Team.team_id">
+<code class="descname">team_id</code><a class="headerlink" href="#Team.team_id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> (foreign key to <cite>Team</cite>)</p>
+<p>ID of the team that owns this submission</p>
+</dd></dl>
+
+</dd></dl>
+
 </div>
 
 
@@ -64,15 +99,17 @@
 <h3>Related Topics</h3>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="../api/users/user_matches.html" title="previous chapter">/users/&lt;user&gt;/matches</a></li>
-      <li>Next: <a href="loadout.html" title="next chapter">Loadout</a></li>
+  <li><a href="index.html">LoC Models</a><ul>
+      <li>Previous: <a href="role.html" title="previous chapter">Role</a></li>
+      <li>Next: <a href="team.html" title="next chapter">Team</a></li>
+  </ul></li>
   </ul></li>
 </ul>
 </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/models/index.txt"
+      <li><a href="../_sources/models/submission.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -98,7 +135,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../_sources/models/index.txt"
+      <a href="../_sources/models/submission.txt"
           rel="nofollow">Page source</a>
     </div>
 

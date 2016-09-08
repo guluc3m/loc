@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>UserRole &mdash; LoC 0.0.1 documentation</title>
+    <title>Loadout &mdash; LoC 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="LoC 0.0.1 documentation" href="../index.html" />
     <link rel="up" title="LoC Models" href="index.html" />
-    <link rel="next" title="Database relations" href="../db_relations.html" />
-    <link rel="prev" title="User" href="user.html" />
+    <link rel="next" title="Match" href="match.html" />
+    <link rel="prev" title="LoC Models" href="index.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -42,32 +42,40 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="userrole">
-<h1>UserRole<a class="headerlink" href="#userrole" title="Permalink to this headline">¶</a></h1>
-<p>This model represents the association between an user and the roles they have
-been assigned.</p>
+  <div class="section" id="loadout">
+<h1>Loadout<a class="headerlink" href="#loadout" title="Permalink to this headline">¶</a></h1>
+<p><cite>Team</cite> <em>templates</em>. Users may create loadouts with users they enjoy working with
+in order to send them a direct invitation when creating a team.</p>
+<p>The process is as follows:</p>
+<ol class="arabic simple">
+<li>User creates a loadout and adds other users to it (records in the
+<cite>loadout_members</cite> database relationship)</li>
+<li>When creating a team, choose a loadout and send invitation links to each of
+the users in the loadout</li>
+<li>The rest of the process is the same as when creating a <cite>Team</cite></li>
+</ol>
 <dl class="class">
-<dt id="UserRole">
-<em class="property">class </em><code class="descname">UserRole</code><a class="headerlink" href="#UserRole" title="Permalink to this definition">¶</a></dt>
+<dt id="Loadout">
+<em class="property">class </em><code class="descname">Loadout</code><a class="headerlink" href="#Loadout" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="UserRole.id">
-<code class="descname">id</code><a class="headerlink" href="#UserRole.id" title="Permalink to this definition">¶</a></dt>
+<dt id="Loadout.id">
+<code class="descname">id</code><a class="headerlink" href="#Loadout.id" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>int</em> (primary key)</p>
-<p>Unique ID for the association</p>
+<p>Unique ID of the Loadout</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="UserRole.user_id">
-<code class="descname">user_id</code><a class="headerlink" href="#UserRole.user_id" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> (Foreign key to <a class="reference internal" href="user.html"><span class="doc">User</span></a>)</p>
-<p>ID of the user for which the association is defined</p>
+<dt id="Loadout.name">
+<code class="descname">name</code><a class="headerlink" href="#Loadout.name" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>string</em></p>
+<p>Name given to the loadout</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="UserRole.role_id">
-<code class="descname">role_id</code><a class="headerlink" href="#UserRole.role_id" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>int</em> (foreign key to <a class="reference internal" href="role.html"><span class="doc">Role</span></a>)</p>
-<p>ID of the role for which the association is defined</p>
+<dt id="Loadout.owner_id">
+<code class="descname">owner_id</code><a class="headerlink" href="#Loadout.owner_id" title="Permalink to this definition">¶</a></dt>
+<dd><p><em>int</em> (foreign key to <cite>User</cite>)</p>
+<p>Owner of the loadout</p>
 </dd></dl>
 
 </dd></dl>
@@ -84,8 +92,8 @@ been assigned.</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">LoC Models</a><ul>
-      <li>Previous: <a href="user.html" title="previous chapter">User</a></li>
-      <li>Next: <a href="../db_relations.html" title="next chapter">Database relations</a></li>
+      <li>Previous: <a href="index.html" title="previous chapter">LoC Models</a></li>
+      <li>Next: <a href="match.html" title="next chapter">Match</a></li>
   </ul></li>
   </ul></li>
 </ul>
@@ -93,7 +101,7 @@ been assigned.</p>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../_sources/models/user_role.txt"
+      <li><a href="../_sources/models/loadout.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -119,7 +127,7 @@ been assigned.</p>
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../_sources/models/user_role.txt"
+      <a href="../_sources/models/loadout.txt"
           rel="nofollow">Page source</a>
     </div>
 

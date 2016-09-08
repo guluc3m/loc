@@ -25,8 +25,8 @@
     <script type="text/javascript" src="../_static/doctools.js"></script>
     <link rel="top" title="LoC 0.0.1 documentation" href="../index.html" />
     <link rel="up" title="LoC Models" href="index.html" />
-    <link rel="next" title="UserRole" href="user_role.html" />
-    <link rel="prev" title="Role" href="role.html" />
+    <link rel="next" title="Database relations" href="../db_relations.html" />
+    <link rel="prev" title="Team" href="team.html" />
    
   <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
   
@@ -44,9 +44,14 @@
             
   <div class="section" id="user">
 <h1>User<a class="headerlink" href="#user" title="Permalink to this headline">¶</a></h1>
-<p>This model represents user accounts in the platform (including administrator
-ones). Note that session management is performed by means of a JWT token
-obtained through the <a class="reference internal" href="../api/users/login.html"><span class="doc">/login</span></a> endpoint.</p>
+<p>User accounts in the platform (including administrator ones). Note that session
+management is performed by means of a JWT token obtained through the
+<a class="reference internal" href="../api/users/login.html"><span class="doc">/login</span></a> endpoint.</p>
+<p>User roles are registered in the <cite>user_roles</cite> database relationship, and are
+checked on certain operations.</p>
+<p>Users can follow other users. Followers can see matches in which other users
+have participated. This is is done through the <cite>followers</cite> database
+relationship.</p>
 <dl class="class">
 <dt id="User">
 <em class="property">class </em><code class="descname">User</code><a class="headerlink" href="#User" title="Permalink to this definition">¶</a></dt>
@@ -77,13 +82,6 @@ through this address (e.g. restoring a password)</p>
 <code class="descname">password</code><a class="headerlink" href="#User.password" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>string</em></p>
 <p>Stored password of the User (hashed)</p>
-</dd></dl>
-
-<dl class="attribute">
-<dt id="User.name">
-<code class="descname">name</code><a class="headerlink" href="#User.name" title="Permalink to this definition">¶</a></dt>
-<dd><p><em>string</em></p>
-<p>Optional real name of the User</p>
 </dd></dl>
 
 <dl class="attribute">
@@ -137,8 +135,8 @@ new one has to be generated</p>
 <ul>
   <li><a href="../index.html">Documentation overview</a><ul>
   <li><a href="index.html">LoC Models</a><ul>
-      <li>Previous: <a href="role.html" title="previous chapter">Role</a></li>
-      <li>Next: <a href="user_role.html" title="next chapter">UserRole</a></li>
+      <li>Previous: <a href="team.html" title="previous chapter">Team</a></li>
+      <li>Next: <a href="../db_relations.html" title="next chapter">Database relations</a></li>
   </ul></li>
   </ul></li>
 </ul>
