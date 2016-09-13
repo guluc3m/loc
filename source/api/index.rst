@@ -14,6 +14,5 @@ in **English** by default.
 .. toctree::
    :maxdepth: 2
 
-   admin/index
    matches/index
    users/index
