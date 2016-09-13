@@ -43,6 +43,13 @@
             
   <div class="section" id="loc-api">
 <h1>LoC API<a class="headerlink" href="#loc-api" title="Permalink to this headline">¶</a></h1>
+<p>The API follows the JSend specification found at
+<a class="reference external" href="https://labs.omniti.com/labs/jsend">https://labs.omniti.com/labs/jsend</a> . Apart from the HTTP status code, each
+endpoint will return a <em>success</em>, <em>fail</em> or <em>error</em> response according to the
+specification.</p>
+<p>If a message needs to be returned, the string will be localized according to
+the HTTP locale header when possible. Otherwise, the message will be displayed
+in <strong>English</strong> by default.</p>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="admin/index.html">Admin API</a><ul>
@@ -60,7 +67,6 @@
 <li class="toctree-l1"><a class="reference internal" href="users/index.html">Users API</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="users/login.html">/login</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/profile.html">/profile</a></li>
-<li class="toctree-l2"><a class="reference internal" href="users/profile_edit.html">/profile/edit</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/friends.html">/profile/friends</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/friends_add.html">/profile/friends/add</a></li>
 <li class="toctree-l2"><a class="reference internal" href="users/friends_accept.html">/profile/friends/accept/&lt;token&gt;</a></li>
