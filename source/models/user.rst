@@ -26,6 +26,13 @@ relationship.
 
       Unique username of the User
 
+
+   .. py:attribute:: name
+
+      *string*
+
+      Real name of the User (optional)
+
    .. py:attribute:: email
 
       *string*

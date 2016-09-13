@@ -6,7 +6,6 @@ Users API
 
    login
    profile
-   profile_edit
    friends
    friends_add
    friends_accept
