@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>/admin/matches &mdash; LoC 0.0.1 documentation</title>
+    <title>/profile/followers &mdash; LoC 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -39,14 +39,12 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="admin-matches">
-<h1>/admin/matches<a class="headerlink" href="#admin-matches" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="profile-followers">
+<h1>/profile/followers<a class="headerlink" href="#profile-followers" title="Permalink to this headline">¶</a></h1>
 <dl class="get">
-<dt id="get--admin-matches">
-<code class="descname">GET </code><code class="descname">/admin/matches</code><a class="headerlink" href="#get--admin-matches" title="Permalink to this definition">¶</a></dt>
-<dd><p>Obtain a list of Matches that have taken place or are currently taking place.</p>
-<p>Does not return deleted matches.</p>
-<p><strong>Requires ``admin`` role</strong>.</p>
+<dt id="get--profile-followers">
+<code class="descname">GET </code><code class="descname">/profile/followers</code><a class="headerlink" href="#get--profile-followers" title="Permalink to this definition">¶</a></dt>
+<dd><p>Obtain current logged in user&#8217;s followers.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
@@ -59,24 +57,21 @@
 </tr>
 <tr class="field-even field"><th class="field-name" colspan="2">Response JSON Object:</th></tr>
 <tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
-<li><strong>id</strong> (<em>int</em>) &#8211; unique id of the match</li>
-<li><strong>title</strong> (<em>string</em>) &#8211; title of the match</li>
-<li><strong>start_date</strong> (<em>date</em>) &#8211; start date of the match</li>
-<li><strong>end_date</strong> (<em>date</em>) &#8211; end date of the match</li>
-<li><strong>visible</strong> (<em>boolean</em>) &#8211; whether the match is visible to the public or not</li>
+<li><strong>username</strong> (<em>string</em>) &#8211; username of follower</li>
 </ul>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; a list is always returned, although it may be empty</li>
-<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; when the user does not have the required admin role</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; when user is logged in; returns list of followers</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; when the user is not logged in</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; when user record cannot be found or has been removed</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/admin/matches</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/profile/followers</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
@@ -91,13 +86,8 @@
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
 
 <span class="p">[</span>
-    <span class="p">{</span>
-        <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
-        <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Practice match&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;start_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-15T18:25:43.511Z&quot;</span><span class="p">,</span>
-        <span class="nt">&quot;visible&quot;</span><span class="p">:</span> <span class="kc">false</span>
-    <span class="p">}</span>
+    <span class="s2">&quot;frienda&quot;</span><span class="p">,</span>
+    <span class="s2">&quot;friendb&quot;</span>
 <span class="p">]</span>
 </pre></div>
 </div>
@@ -120,7 +110,7 @@
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
     <ul class="this-page-menu">
-      <li><a href="../../_sources/api/admin/matches.txt"
+      <li><a href="../../_sources/api/users/followers.txt"
             rel="nofollow">Show Source</a></li>
     </ul>
    </div>
@@ -146,7 +136,7 @@
       &amp; <a href="https://github.com/bitprophet/alabaster">Alabaster 0.7.9</a>
       
       |
-      <a href="../../_sources/api/admin/matches.txt"
+      <a href="../../_sources/api/users/followers.txt"
           rel="nofollow">Page source</a>
     </div>
 

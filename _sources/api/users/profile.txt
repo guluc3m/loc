@@ -5,7 +5,7 @@
 
     Obtain current logged in user details.
 
-    :<json string token: JWT token of the active user session
+    :<json string token: JWT of the active user session
 
     :>json string username: the username of the current user
     :>json string name: real name of the current user
@@ -41,11 +41,11 @@
         }
 
 
-.. http:pug:: /profile
+.. http:put:: /profile
 
     Update the information stored for the current user
 
-    :<json string token: JWT token of the active user session
+    :<json string token: JWT of the active user session
     :<json string name: real name of the current user (not required)
     :<json string email: email address used to communicate with the user
 
@@ -58,7 +58,7 @@
 
     .. sourcecode:: http
 
-        GET /profile/edit HTTP/1.1
+        PUT /profile HTTP/1.1
         Host: example.com
         Accept: application/json
         Content-Type: application/json

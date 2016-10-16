@@ -6,7 +6,7 @@
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     
-    <title>/matches/&lt;id&gt; &mdash; LoC 0.0.1 documentation</title>
+    <title>/matches/&lt;slug&gt; &mdash; LoC 0.0.1 documentation</title>
     
     <link rel="stylesheet" href="../../_static/alabaster.css" type="text/css" />
     <link rel="stylesheet" href="../../_static/pygments.css" type="text/css" />
@@ -42,18 +42,18 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="matches-id">
-<h1>/matches/&lt;id&gt;<a class="headerlink" href="#matches-id" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="matches-slug">
+<h1>/matches/&lt;slug&gt;<a class="headerlink" href="#matches-slug" title="Permalink to this headline">¶</a></h1>
 <dl class="get">
-<dt id="get--matches-(int- id)">
-<code class="descname">GET </code><code class="descname">/matches/(int: id)</code><a class="headerlink" href="#get--matches-(int- id)" title="Permalink to this definition">¶</a></dt>
+<dt id="get--matches-(string- slug)">
+<code class="descname">GET </code><code class="descname">/matches/(string: slug)</code><a class="headerlink" href="#get--matches-(string- slug)" title="Permalink to this definition">¶</a></dt>
 <dd><p>Obtain complete details for a match.</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>id</strong> (<em>int</em>) &#8211; unique id of the match</li>
+<li><strong>slug</strong> (<em>string</em>) &#8211; unique slug of the match</li>
 </ul>
 </td>
 </tr>
@@ -69,6 +69,7 @@ already started</li>
 <li><strong>end_date</strong> (<em>date</em>) &#8211; end date of the match</li>
 <li><strong>min_team</strong> (<em>int</em>) &#8211; minimum number of participants for each team</li>
 <li><strong>max_team</strong> (<em>int</em>) &#8211; maximum number of participants for each team</li>
+<li><strong>slug</strong> (<em>string</em>) &#8211; unique slug of the match</li>
 </ul>
 </td>
 </tr>
@@ -81,7 +82,7 @@ already started</li>
 </tbody>
 </table>
 <p><strong>Example request</strong>:</p>
-<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/matches/42</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">GET</span> <span class="nn">/matches/practice-match</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
 <span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
 <span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
 <span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
@@ -99,7 +100,104 @@ already started</li>
     <span class="nt">&quot;start_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-15T18:25:43.511Z&quot;</span><span class="p">,</span>
     <span class="nt">&quot;min_team&quot;</span><span class="p">:</span> <span class="mi">2</span><span class="p">,</span>
-    <span class="nt">&quot;max_team&quot;</span><span class="p">:</span> <span class="mi">4</span>
+    <span class="nt">&quot;max_team&quot;</span><span class="p">:</span> <span class="mi">4</span><span class="p">,</span>
+    <span class="nt">&quot;slug&quot;</span><span class="p">:</span> <span class="s2">&quot;practice-match&quot;</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="put">
+<dt id="put--matches-(string- slug)">
+<code class="descname">PUT </code><code class="descname">/matches/(string: slug)</code><a class="headerlink" href="#put--matches-(string- slug)" title="Permalink to this definition">¶</a></dt>
+<dd><p>Modify the details of a match.</p>
+<p>This endpoint requires the <em>admin</em> role, therefore the server will check
+the supplied JWT and the stored role.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>slug</strong> (<em>string</em>) &#8211; unique slug of the match</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name" colspan="2">Request JSON Object:</th></tr>
+<tr class="field-even field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>token</strong> (<em>string</em>) &#8211; JWT of the active user session</li>
+<li><strong>title</strong> (<em>string</em>) &#8211; title of the match</li>
+<li><strong>short_description</strong> (<em>string</em>) &#8211; short description of the match</li>
+<li><strong>long_description</strong> (<em>string</em>) &#8211; long description of the match (Markdown
+enabled)</li>
+<li><strong>start_date</strong> (<em>date</em>) &#8211; start date of the match</li>
+<li><strong>end_date</strong> (<em>date</em>) &#8211; end date of the match</li>
+<li><strong>min_team</strong> (<em>int</em>) &#8211; minimum number of participants for each team</li>
+<li><strong>max_team</strong> (<em>int</em>) &#8211; maximum number of participants for each team</li>
+<li><strong>slug</strong> (<em>string</em>) &#8211; unique slug for the match; can be created automatically
+if it is not provided</li>
+<li><strong>is_visible</strong> (<em>boolean</em>) &#8211; whether the match is visible the public</li>
+</ul>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name" colspan="2">Response JSON Object:</th></tr>
+<tr class="field-odd field"><td>&nbsp;</td><td class="field-body"><ul class="first simple">
+<li><strong>id</strong> (<em>int</em>) &#8211; unique id of the match</li>
+<li><strong>title</strong> (<em>string</em>) &#8211; title of the match</li>
+<li><strong>short_description</strong> (<em>string</em>) &#8211; short description of the match</li>
+<li><strong>long_description</strong> (<em>string</em>) &#8211; long description of the match (Markdown
+enabled)</li>
+<li><strong>start_date</strong> (<em>date</em>) &#8211; start date of the match</li>
+<li><strong>end_date</strong> (<em>date</em>) &#8211; end date of the match</li>
+<li><strong>min_team</strong> (<em>int</em>) &#8211; minimum number of participants for each team</li>
+<li><strong>max_team</strong> (<em>int</em>) &#8211; maximum number of participants for each team</li>
+<li><strong>slug</strong> (<em>string</em>) &#8211; unique slug for the match</li>
+<li><strong>is_visible</strong> (<em>boolean</em>) &#8211; whether the match is visible the public</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Status Codes:</th><td class="field-body"><ul class="first last simple">
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.2.1">200 OK</a> &#8211; when record was found; returns updated match details</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.2">401 Unauthorized</a> &#8211; when the user does not have the required admin role</li>
+<li><a class="reference external" href="http://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.5">404 Not Found</a> &#8211; when record was not found or it was deleted</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Example request</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="nf">PUT</span> <span class="nn">/matches/practice-match</span> <span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span>
+<span class="na">Host</span><span class="o">:</span> <span class="l">example.com</span>
+<span class="na">Accept</span><span class="o">:</span> <span class="l">application/json</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;token&quot;</span><span class="p">:</span> <span class="s2">&quot;JWT_TOKEN&quot;</span><span class="p">,</span>
+
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Updated Practice match&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;short_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a practice match, updated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;long_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is the long description, updated&quot;</span>
+    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-15T18:25:43.511Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;min_team&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;max_team&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;is_visible&quot;</span><span class="p">:</span> <span class="kc">false</span>
+<span class="p">}</span>
+</pre></div>
+</div>
+<p><strong>Example response</strong>:</p>
+<div class="highlight-http"><div class="highlight"><pre><span></span><span class="kr">HTTP</span><span class="o">/</span><span class="m">1.1</span> <span class="m">200</span> <span class="ne">OK</span>
+<span class="na">Content-Type</span><span class="o">:</span> <span class="l">application/json</span>
+
+<span class="p">{</span>
+    <span class="nt">&quot;id&quot;</span><span class="p">:</span> <span class="mi">42</span><span class="p">,</span>
+    <span class="nt">&quot;title&quot;</span><span class="p">:</span> <span class="s2">&quot;Updated Practice match&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;short_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is a practice match, Updated&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;long_description&quot;</span><span class="p">:</span> <span class="s2">&quot;This is the long description, updated&quot;</span>
+    <span class="s2">&quot;start_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-04-23T18:25:43.511Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;end_date&quot;</span><span class="p">:</span> <span class="s2">&quot;2016-05-15T18:25:43.511Z&quot;</span><span class="p">,</span>
+    <span class="nt">&quot;min_team&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;max_team&quot;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span>
+    <span class="nt">&quot;is_visible&quot;</span><span class="p">:</span> <span class="kc">false</span>
 <span class="p">}</span>
 </pre></div>
 </div>
