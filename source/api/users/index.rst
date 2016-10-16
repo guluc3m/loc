@@ -16,3 +16,4 @@ Users API
    signup
    user
    user_matches
+   user_toggle_follow
