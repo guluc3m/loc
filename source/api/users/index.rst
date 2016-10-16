@@ -9,6 +9,8 @@ Users API
    friends
    friends_add
    friends_accept
+   followers
+   following
    reset_password
    reset_password_token
    signup
