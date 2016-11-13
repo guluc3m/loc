@@ -1,5 +1,5 @@
 /users/<user>/toggle-follow
-=====================
+===========================
 
 .. http:post:: /users/(string: username)/toggle-follow
 

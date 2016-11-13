@@ -1,5 +1,5 @@
 /matches/<slug>/enter
-===================
+=====================
 
 .. http:post:: /matches/(string: slug)/enter
 

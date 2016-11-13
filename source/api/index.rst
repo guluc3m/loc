@@ -15,4 +15,5 @@ in **English** by default.
    :maxdepth: 2
 
    matches/index
+   teams/index
    users/index
