@@ -4,7 +4,7 @@ Submission
 Contains the basic information of a project submitted by one team.
 
 
-.. py:class:: Team
+.. py:class:: Submission
 
    .. py:attribute:: id
 

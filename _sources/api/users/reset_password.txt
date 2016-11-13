@@ -20,7 +20,7 @@
 
     .. sourcecode:: http
 
-        POST /forgot-password HTTP/1.1
+        POST /reset-password HTTP/1.1
         Host: example.com
         Accept: application/json
         Content-Type: application/json

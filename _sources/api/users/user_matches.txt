@@ -9,6 +9,7 @@
 
     :>json int id: unique id of the match
     :>json string title: title of the match
+    :>json string slug: slug of the match
 
     :status 200: when user record was found. Returns user information
     :status 404: when user record was not found or was deleted
@@ -33,6 +34,7 @@
             {
                 "id": 42,
                 "title": "Practice match",
+                "slug": "practice-match"
             }
         ]
 

@@ -1,41 +1,53 @@
-/matches/<id>/enter
-===================
+/matches/<slug>/enter
+=====================
 
-TODO: add error status code
-
-.. http:post:: /matches/(int: id)/enter
+.. http:post:: /matches/(string: slug)/enter
 
     Enter a match.
 
     Participants need a team to enter a match. These teams are created on demand
-    when entering a match and each user, except for the one that created the team,
-    receives an invitation to participate as part of the team.
+    when entering a match and have a unique token that the owner of the group
+    can use to invite others to the team.
 
-    Only when all members have accepted is the team participating in the match.
+    The team will **only** participate in the match if `Team.num_members` is
+    between the minimum and maximum number of members allowed in a match (
+    `Team.is_participating` is changed to true when that condition is satisfied).
 
-    :param int id: unique id of the match
+    A `TeamMember` record is created for the owner when the team is created, so
+    it is necessary to check whether a record for the match already exists.
+
+    :param string slug: unique slug of the match
 
     :<json string token: JWT token of the active user session
-    :<json list[string] members: list of usernames (without the user creating the
-        team) to invite to the team
 
-    :status 200: when user is logged in and all the users are available
+    :>json string invite_token: token used to invite others to the team
+
+    :status 200: when user is logged in and the match is available
     :status 401: when the user is not logged in
+    :status 404: when the match does not exist
+    :status 409: when a `TeamMember` record already exists for the user-match
+        pair
 
     **Example request**:
 
     .. sourcecode:: http
 
-        POST /matches/42/enter HTTP/1.1
+        POST /matches/practice-match/enter HTTP/1.1
         Host: example.com
         Accept: application/json
         Content-Type: application/json
 
         {
             "token": "JWT_TOKEN",
-            "members": [
-                "user1",
-                "user2",
-                "user3"
-            ]
+        }
+
+    **Example response**:
+
+    .. sourcecode:: http
+
+        HTTP/1.1 200 OK
+        Content-Type: application/json
+
+        {
+            "invite_token": "abcdefghijk"
         }

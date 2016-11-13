@@ -56,6 +56,7 @@
    <a href="#cap-/profile"><strong>/profile</strong></a> | 
    <a href="#cap-/reset-password"><strong>/reset-password</strong></a> | 
    <a href="#cap-/signup"><strong>/signup</strong></a> | 
+   <a href="#cap-/teams"><strong>/teams</strong></a> | 
    <a href="#cap-/users"><strong>/users</strong></a>
    </div>
 
@@ -107,7 +108,7 @@
      <tr>
        <td></td>
        <td>
-       <a href="api/matches/match_enter.html#post--matches-(int- id)-enter"><code class="xref">POST /matches/(int: id)/enter</code></a></td><td>
+       <a href="api/matches/match_enter.html#post--matches-(string- slug)-enter"><code class="xref">POST /matches/(string: slug)/enter</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
@@ -136,6 +137,11 @@
        <td></td>
        <td>
        <a href="api/users/friends.html#get--profile-friends"><code class="xref">GET /profile/friends</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api/users/change_password.html#post--profile-change-password"><code class="xref">POST /profile/change-password</code></a></td><td>
        <em></em></td></tr>
      <tr>
        <td></td>
@@ -179,6 +185,19 @@
        <a href="api/users/signup.html#post--signup"><code class="xref">POST /signup</code></a></td><td>
        <em></em></td></tr>
      <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
+     <tr class="cap" id="cap-/teams"><td></td><td>
+       <strong>/teams</strong></td><td></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api/teams/join_team.html#get--teams-join-(string- token)"><code class="xref">GET /teams/join/(string: token)</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api/teams/join_team.html#post--teams-join-(string- token)"><code class="xref">POST /teams/join/(string: token)</code></a></td><td>
+       <em></em></td></tr>
+     <tr class="pcap"><td></td><td>&nbsp;</td><td></td></tr>
      <tr class="cap" id="cap-/users"><td></td><td>
        <strong>/users</strong></td><td></td></tr>
      <tr>
@@ -190,6 +209,11 @@
        <td></td>
        <td>
        <a href="api/users/user_matches.html#get--users-(string- username)-matches"><code class="xref">GET /users/(string: username)/matches</code></a></td><td>
+       <em></em></td></tr>
+     <tr>
+       <td></td>
+       <td>
+       <a href="api/users/user_toggle_follow.html#post--users-(string- username)-toggle-follow"><code class="xref">POST /users/(string: username)/toggle-follow</code></a></td><td>
        <em></em></td></tr>
    </table>
 

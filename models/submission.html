@@ -46,33 +46,33 @@
 <h1>Submission<a class="headerlink" href="#submission" title="Permalink to this headline">¶</a></h1>
 <p>Contains the basic information of a project submitted by one team.</p>
 <dl class="class">
-<dt id="Team">
-<em class="property">class </em><code class="descname">Team</code><a class="headerlink" href="#Team" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission">
+<em class="property">class </em><code class="descname">Submission</code><a class="headerlink" href="#Submission" title="Permalink to this definition">¶</a></dt>
 <dd><dl class="attribute">
-<dt id="Team.id">
-<code class="descname">id</code><a class="headerlink" href="#Team.id" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission.id">
+<code class="descname">id</code><a class="headerlink" href="#Submission.id" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>int</em> (primary key)</p>
 <p>Unique ID of the Submission</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Team.title">
-<code class="descname">title</code><a class="headerlink" href="#Team.title" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission.title">
+<code class="descname">title</code><a class="headerlink" href="#Submission.title" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>string</em></p>
 <p>Title of the project. Try to be creative!</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Team.description">
-<code class="descname">description</code><a class="headerlink" href="#Team.description" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission.description">
+<code class="descname">description</code><a class="headerlink" href="#Submission.description" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>string</em></p>
 <p>Description of the project. May be used to show the basic idea behind the
 project</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Team.url">
-<code class="descname">url</code><a class="headerlink" href="#Team.url" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission.url">
+<code class="descname">url</code><a class="headerlink" href="#Submission.url" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>string</em></p>
 <p>Url to the project source code. This may be a repository or a meta site
 that includes a presentation of the project, or instructions, in
@@ -80,8 +80,8 @@ addition to the source code</p>
 </dd></dl>
 
 <dl class="attribute">
-<dt id="Team.team_id">
-<code class="descname">team_id</code><a class="headerlink" href="#Team.team_id" title="Permalink to this definition">¶</a></dt>
+<dt id="Submission.team_id">
+<code class="descname">team_id</code><a class="headerlink" href="#Submission.team_id" title="Permalink to this definition">¶</a></dt>
 <dd><p><em>int</em> (foreign key to <cite>Team</cite>)</p>
 <p>ID of the team that owns this submission</p>
 </dd></dl>
