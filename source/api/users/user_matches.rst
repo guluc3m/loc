@@ -7,7 +7,8 @@
 
     :param string username: the username for which to obtain information
 
-    :>json int id: unique id of the match
+    :>json int team_id: unique id of the team of which the user is member
+    :>json int match_id: unique id of the match
     :>json string title: title of the match
     :>json string slug: slug of the match
 
@@ -32,7 +33,8 @@
 
         [
             {
-                "id": 42,
+                "team_id": 1,
+                "match_id": 42,
                 "title": "Practice match",
                 "slug": "practice-match"
             }
