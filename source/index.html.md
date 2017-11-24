@@ -1,17 +1,13 @@
 ---
 title: League of Code API Reference
 
-language_tabs: # must be one of https://git.io/vQNgJ
-  - shell
-  - ruby
-  - python
-  - javascript
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
 
 includes:
   - models 
+  - v1_account
 
 search: true
 ---

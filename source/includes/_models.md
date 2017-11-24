@@ -1,5 +1,9 @@
 # API models
 
+The relations of the database models can be seen in the next image:
+
+![Database relations](images/relations.png)
+
 ## User
 
 User accounts in the platform (including administrator ones).
@@ -11,7 +15,8 @@ User roles are registered in the `user_roles` relationship, and are
 checked on certain operations.
 
 Users can follow other users. Followers can see matches in which other users
-have participated. This is done through the `followers` relationship.
+have participated. This is done through the `followers` relation (`Follower`
+model).
 
 ### Attributes
 
@@ -44,6 +49,21 @@ Note that User-Role relations are stored in the `user_roles` relationship.
 | --- | --- | --- | --- |
 | **id** | integer | (Primary key) Unique ID of the role |
 | name | string | Unique descriptive name of the role |
+
+
+## Follower
+
+Users can follow other users, and this act is recorded in the `followers` table,
+which also contains a date(time) of when the follower started following the
+followee.
+
+### Attributes
+
+| Attribute | Type | Description |
+| --- | --- | --- | --- |
+| **follower_id** | integer | (Primary key) Unique ID of the follower |
+| **followee_id** | integer | (Primary key) Unique ID of the followee |
+| follow_date | date | Date(time) in which the follower started following the followee |
 
 
 ## Match
