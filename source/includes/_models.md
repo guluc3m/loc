@@ -146,8 +146,8 @@ must provide the link to join the party manually |
 Submissions are the resulting projects created by the participants at the end of
 a match.
 
-Each party can have one submission per match, and this submission must be
-created by the party leader.
+Each party has one submission per match, which is created automatically when the
+match starts, and can only be edited by the party leader.
 
 Submissions can be edited until the match is closed.
 

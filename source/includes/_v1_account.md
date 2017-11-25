@@ -474,7 +474,7 @@ Change current password (**only when the user is logged in**).
 ```json
 {
     "status": "success",
-    "data": {}
+    "data": null
 }
 ```
 
@@ -559,7 +559,7 @@ and belongs to a user account.
 ```json
 {
     "status": "success",
-    "data": {}
+    "data": null 
 }
 ```
 
@@ -590,7 +590,15 @@ new password.
 
 ### HTTP Request
 
-`GET /v1/account/reset-password/<token>`
+`GET /v1/account/reset-password`
+
+> Example request:
+
+```json
+{
+    "token": "PASSWORD_RESET_TOKEN"
+}
+```
 
 ### Parameters
 
@@ -605,7 +613,7 @@ new password.
 ```json
 {
     "status": "success",
-    "data": {}
+    "data": null 
 }
 ```
 
@@ -651,12 +659,13 @@ endpoint), it is not recommended.
 
 ### HTTP Request
 
-`POST /v1/account/reset-password/<token>`
+`POST /v1/account/reset-password`
 
 > Example request:
 
 ```json
 {
+    "token": "PASSWORD_RESET_TOKEN"
     "password": "myresetpassword",
     "confirm_password": "myresetpassword"
 }
@@ -678,7 +687,7 @@ endpoint), it is not recommended.
 ```json
 {
     "status": "success",
-    "data": {}
+    "data": null 
 }
 ```
 

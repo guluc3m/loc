@@ -8,6 +8,7 @@ toc_footers:
 includes:
   - models 
   - v1_account
+  - v1_match
 
 search: true
 ---
