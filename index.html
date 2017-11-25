@@ -285,6 +285,38 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#v1-matches" class="toc-h1 toc-link" data-title="/v1/matches">/v1/matches</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#list-current-matches" class="toc-h2 toc-link" data-title="List current matches">List current matches</a>
+                  </li>
+                  <li>
+                    <a href="#list-past-matches" class="toc-h2 toc-link" data-title="List past matches">List past matches</a>
+                  </li>
+                  <li>
+                    <a href="#get-details-of-a-given-match" class="toc-h2 toc-link" data-title="Get details of a given match">Get details of a given match</a>
+                  </li>
+                  <li>
+                    <a href="#join-a-match" class="toc-h2 toc-link" data-title="Join a match">Join a match</a>
+                  </li>
+                  <li>
+                    <a href="#leave-a-match" class="toc-h2 toc-link" data-title="Leave a match">Leave a match</a>
+                  </li>
+                  <li>
+                    <a href="#list-participating-parties" class="toc-h2 toc-link" data-title="List participating parties">List participating parties</a>
+                  </li>
+                  <li>
+                    <a href="#list-parties-looking-for-more-members" class="toc-h2 toc-link" data-title="List parties looking for more members">List parties looking for more members</a>
+                  </li>
+                  <li>
+                    <a href="#get-submission-details" class="toc-h2 toc-link" data-title="Get submission details">Get submission details</a>
+                  </li>
+                  <li>
+                    <a href="#edit-submission" class="toc-h2 toc-link" data-title="Edit submission">Edit submission</a>
+                  </li>
+              </ul>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -634,8 +666,8 @@ the user joins a different party.</p>
 <p>Submissions are the resulting projects created by the participants at the end of
 a match.</p>
 
-<p>Each party can have one submission per match, and this submission must be
-created by the party leader.</p>
+<p>Each party has one submission per match, which is created automatically when the
+match starts, and can only be edited by the party leader.</p>
 
 <p>Submissions can be edited until the match is closed.</p>
 <h3 id='attributes-6'>Attributes</h3>
@@ -1251,7 +1283,7 @@ Authenticated endpoint.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1352,7 +1384,7 @@ and belongs to a user account.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1386,8 +1418,15 @@ and belongs to a user account.</p>
 <p>If this token is valid, then it is possible to make a <code>POST</code> request with the
 new password.</p>
 <h3 id='http-request-10'>HTTP Request</h3>
-<p><code>GET /v1/account/reset-password/&lt;token&gt;</code></p>
-<h3 id='parameters-9'>Parameters</h3>
+<p><code>GET /v1/account/reset-password</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PASSWORD_RESET_TOKEN"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-9'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -1407,7 +1446,7 @@ new password.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1458,12 +1497,13 @@ endpoint), it is not recommended.</p>
 <strong>NOTE</strong>: This invalidates all JWT for the specified user.
 </aside>
 <h3 id='http-request-11'>HTTP Request</h3>
-<p><code>POST /v1/account/reset-password/&lt;token&gt;</code></p>
+<p><code>POST /v1/account/reset-password</code></p>
 
 <blockquote>
 <p>Example request:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PASSWORD_RESET_TOKEN"</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"confirm_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1497,7 +1537,7 @@ endpoint), it is not recommended.</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1536,6 +1576,862 @@ endpoint), it is not recommended.</p>
 <tr>
 <td>500</td>
 <td>Server error</td>
+</tr>
+</tbody></table>
+<h1 id='v1-matches'>/v1/matches</h1>
+<p>The <code>matches</code> endpoint implements functionalities related to code matches.</p>
+<h2 id='list-current-matches'>List current matches</h2>
+<p>Obtain a list of matches that are currently taking place or will take place
+in the future.</p>
+
+<p>This does not include invisible or deleted matches.</p>
+
+<aside class="success">
+The list of matches is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /v1/matches/list</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test match"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 9000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-9000"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of matches (list may be empty if no match is found)</td>
+</tr>
+</tbody></table>
+<h2 id='list-past-matches'>List past matches</h2>
+<p>Obtain a list of matches that have already taken place.</p>
+
+<p>This does not include invisible or deleted matches.</p>
+
+<aside class="success">
+The list of matches is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>GET /v1/matches/list-past</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-2'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Old McOld Match"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"old-mcold-match"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 8000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-8000"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of matches (list may be empty if no match is found)</td>
+</tr>
+</tbody></table>
+<h2 id='get-details-of-a-given-match'>Get details of a given match</h2>
+<p>Obtain details for the specified match (current or old).</p>
+
+<p>Depending on the starting date of the match, the server may not include the
+long description of the match if it has not yet started.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/matches/info</code></p>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to get info from</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-3'>HTTP Response</h3>
+<blockquote>
+<p>Example response with a match that has started (or happened in the past) [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Present match"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description of the match"</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"present-match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response with a match that has not started [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Future match"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future-match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response  [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Could not find match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Match exists, returns match details</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match does not exist, is not visible or was deleted</td>
+</tr>
+</tbody></table>
+<h2 id='join-a-match'>Join a match</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>By joining a match, a <a href="#matchparticipant"><code>MatchParticipant</code></a> record is created
+for the user in the specified match. By default, the user will be in their own
+party, therefore the <code>party_owner_id</code> will be the user ID.</p>
+
+<p>In addition, a <a href="#partytoken"><code>PartyToken</code></a> is also created. This token can be
+used to invite other users to your own party. It is deleted once the user joins
+a party owned by another user.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>POST /v1/match/join</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to get info from</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-4'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"party-token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"123456789abcdefgh"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match slug missing"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are already participating in the match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>User joined the match, returns party token</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing or incomplete (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match was not found (or is invisible or removed)</td>
+</tr>
+<tr>
+<td>409</td>
+<td>The user already joined the match in the past</td>
+</tr>
+</tbody></table>
+<h2 id='leave-a-match'>Leave a match</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Leave a match before it begins. This implies that the user will automatically
+leave any party they are in and their <a href="#matchparticipant"><code>MatchParticipant</code></a>
+record will be deleted.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>POST /v1/match/leave</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to get info from</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-5'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="kc">null</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match slug missing"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You were not participating in the match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>User left the match (and any party they were in)</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing or incomplete (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match was not found (or is invisible or removed)</td>
+</tr>
+<tr>
+<td>409</td>
+<td>The user already left the match in the past</td>
+</tr>
+</tbody></table>
+<h2 id='list-participating-parties'>List participating parties</h2>
+<p>Obtain a list of parties participating in the specified match.</p>
+
+<p>This list is only accessible <strong>once the match has started (or finished)</strong> and
+all participating parties have been formed.</p>
+
+<aside class="success">
+The list of parties is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET /v1/matches/participants</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-6'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-6'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user2"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user4"</span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user8"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user8"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user9"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user11"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user24"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of participating parties (list may contain only one user if it is an individual party)</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match was not found (or is invisible or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='list-parties-looking-for-more-members'>List parties looking for more members</h2>
+<p>Obtain a list of parties looking for more members through the <em>Looking For Group</em>
+functionality.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /v1/matches/lfg</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-7'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-7'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user16"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user16"</span><span class="p">]</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user48"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user45"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user91"</span><span class="p">]</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of parties looking for more members</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match was not found (or is invisible or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='get-submission-details'>Get submission details</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Get a party&#39;s submission for the given match. This action can only be performed
+by <strong>any member of the party</strong> during the match and by <strong>anyone</strong> once the
+match is over (for historic purposes).</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>GET /v1/matches/submission</code></p>
+
+<blockquote>
+<p>Example request during a match:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example request during a match:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+    </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-8'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match</td>
+</tr>
+<tr>
+<td>party</td>
+<td>integer</td>
+<td>(Optional) ID of the leader of the party</td>
+</tr>
+</tbody></table>
+
+<p><strong>Note</strong>: the JWT can be omitted if accessing submissions after the match,
+and the party parameter can be skipped if requesting the user&#39;s own party
+submission (both during and after the match), but it is necessary to access
+submissions from other parties after the match.</p>
+<h3 id='http-response-8'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super submission 9000"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is an awesome submission that simply works"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"https://github.com/guluc3m"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response (missing match) [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response (missing party) [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Party not found for the specified match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Party submission details</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match or party were not found (or invisible or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='edit-submission'>Edit submission</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Edit a party&#39;s submission for the given match. This action can only be performed
+<strong>by the party leader</strong>, which is the owner of the party in the case of teams and
+the user in the case of individual matches.</p>
+
+<p>The submission can only be edited until the closing date of the match.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>PUT /v1/matches/submission</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New URL"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-9'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>New title for the submission</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>New description for the submission</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>New URL for the submission</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-9'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New title"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New description"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"url"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New URL"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not the party leader for this match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>New submission details</td>
+</tr>
+<tr>
+<td>401</td>
+<td>User not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>The user is not the party leader and cannot change the submission</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match was not found (or is invisible or removed)</td>
 </tr>
 </tbody></table>
 
