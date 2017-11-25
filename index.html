@@ -1,0 +1,1547 @@
+
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta content="IE=edge,chrome=1" http-equiv="X-UA-Compatible">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <title>League of Code API Reference</title>
+
+    <style>
+      .highlight table td { padding: 5px; }
+.highlight table pre { margin: 0; }
+.highlight .gh {
+  color: #999999;
+}
+.highlight .sr {
+  color: #f6aa11;
+}
+.highlight .go {
+  color: #888888;
+}
+.highlight .gp {
+  color: #555555;
+}
+.highlight .gs {
+}
+.highlight .gu {
+  color: #aaaaaa;
+}
+.highlight .nb {
+  color: #f6aa11;
+}
+.highlight .cm {
+  color: #75715e;
+}
+.highlight .cp {
+  color: #75715e;
+}
+.highlight .c1 {
+  color: #75715e;
+}
+.highlight .cs {
+  color: #75715e;
+}
+.highlight .c, .highlight .cd {
+  color: #75715e;
+}
+.highlight .err {
+  color: #960050;
+}
+.highlight .gr {
+  color: #960050;
+}
+.highlight .gt {
+  color: #960050;
+}
+.highlight .gd {
+  color: #49483e;
+}
+.highlight .gi {
+  color: #49483e;
+}
+.highlight .ge {
+  color: #49483e;
+}
+.highlight .kc {
+  color: #66d9ef;
+}
+.highlight .kd {
+  color: #66d9ef;
+}
+.highlight .kr {
+  color: #66d9ef;
+}
+.highlight .no {
+  color: #66d9ef;
+}
+.highlight .kt {
+  color: #66d9ef;
+}
+.highlight .mf {
+  color: #ae81ff;
+}
+.highlight .mh {
+  color: #ae81ff;
+}
+.highlight .il {
+  color: #ae81ff;
+}
+.highlight .mi {
+  color: #ae81ff;
+}
+.highlight .mo {
+  color: #ae81ff;
+}
+.highlight .m, .highlight .mb, .highlight .mx {
+  color: #ae81ff;
+}
+.highlight .sc {
+  color: #ae81ff;
+}
+.highlight .se {
+  color: #ae81ff;
+}
+.highlight .ss {
+  color: #ae81ff;
+}
+.highlight .sd {
+  color: #e6db74;
+}
+.highlight .s2 {
+  color: #e6db74;
+}
+.highlight .sb {
+  color: #e6db74;
+}
+.highlight .sh {
+  color: #e6db74;
+}
+.highlight .si {
+  color: #e6db74;
+}
+.highlight .sx {
+  color: #e6db74;
+}
+.highlight .s1 {
+  color: #e6db74;
+}
+.highlight .s {
+  color: #e6db74;
+}
+.highlight .na {
+  color: #a6e22e;
+}
+.highlight .nc {
+  color: #a6e22e;
+}
+.highlight .nd {
+  color: #a6e22e;
+}
+.highlight .ne {
+  color: #a6e22e;
+}
+.highlight .nf {
+  color: #a6e22e;
+}
+.highlight .vc {
+  color: #ffffff;
+}
+.highlight .nn {
+  color: #ffffff;
+}
+.highlight .nl {
+  color: #ffffff;
+}
+.highlight .ni {
+  color: #ffffff;
+}
+.highlight .bp {
+  color: #ffffff;
+}
+.highlight .vg {
+  color: #ffffff;
+}
+.highlight .vi {
+  color: #ffffff;
+}
+.highlight .nv {
+  color: #ffffff;
+}
+.highlight .w {
+  color: #ffffff;
+}
+.highlight {
+  color: #ffffff;
+}
+.highlight .n, .highlight .py, .highlight .nx {
+  color: #ffffff;
+}
+.highlight .ow {
+  color: #f92672;
+}
+.highlight .nt {
+  color: #f92672;
+}
+.highlight .k, .highlight .kv {
+  color: #f92672;
+}
+.highlight .kn {
+  color: #f92672;
+}
+.highlight .kp {
+  color: #f92672;
+}
+.highlight .o {
+  color: #f92672;
+}
+    </style>
+    <link href="stylesheets/screen.css" rel="stylesheet" media="screen" />
+    <link href="stylesheets/print.css" rel="stylesheet" media="print" />
+      <script src="javascripts/all.js"></script>
+  </head>
+
+  <body class="index" data-languages="[]">
+    <a href="#" id="nav-button">
+      <span>
+        NAV
+        <img src="images/navbar.png" alt="Navbar" />
+      </span>
+    </a>
+    <div class="toc-wrapper">
+      <img src="images/logo.png" class="logo" alt="Logo" />
+        <div class="search">
+          <input type="text" class="search" id="input-search" placeholder="Search">
+        </div>
+        <ul class="search-results"></ul>
+      <div id="toc" class="toc-list-h1">
+          <li>
+            <a href="#introduction" class="toc-h1 toc-link" data-title="Introduction">Introduction</a>
+          </li>
+          <li>
+            <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
+          </li>
+          <li>
+            <a href="#api-models" class="toc-h1 toc-link" data-title="API models">API models</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#user" class="toc-h2 toc-link" data-title="User">User</a>
+                  </li>
+                  <li>
+                    <a href="#role" class="toc-h2 toc-link" data-title="Role">Role</a>
+                  </li>
+                  <li>
+                    <a href="#follower" class="toc-h2 toc-link" data-title="Follower">Follower</a>
+                  </li>
+                  <li>
+                    <a href="#match" class="toc-h2 toc-link" data-title="Match">Match</a>
+                  </li>
+                  <li>
+                    <a href="#matchparticipant" class="toc-h2 toc-link" data-title="MatchParticipant">MatchParticipant</a>
+                  </li>
+                  <li>
+                    <a href="#partytoken" class="toc-h2 toc-link" data-title="PartyToken">PartyToken</a>
+                  </li>
+                  <li>
+                    <a href="#submission" class="toc-h2 toc-link" data-title="Submission">Submission</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+            <a href="#v1-account" class="toc-h1 toc-link" data-title="/v1/account">/v1/account</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#signup" class="toc-h2 toc-link" data-title="Signup">Signup</a>
+                  </li>
+                  <li>
+                    <a href="#login" class="toc-h2 toc-link" data-title="Login">Login</a>
+                  </li>
+                  <li>
+                    <a href="#logout" class="toc-h2 toc-link" data-title="Logout">Logout</a>
+                  </li>
+                  <li>
+                    <a href="#get-own-profile" class="toc-h2 toc-link" data-title="Get own profile">Get own profile</a>
+                  </li>
+                  <li>
+                    <a href="#update-own-profile" class="toc-h2 toc-link" data-title="Update own profile">Update own profile</a>
+                  </li>
+                  <li>
+                    <a href="#get-followers" class="toc-h2 toc-link" data-title="Get followers">Get followers</a>
+                  </li>
+                  <li>
+                    <a href="#get-users-followed" class="toc-h2 toc-link" data-title="Get users followed">Get users followed</a>
+                  </li>
+                  <li>
+                    <a href="#change-password" class="toc-h2 toc-link" data-title="Change password">Change password</a>
+                  </li>
+                  <li>
+                    <a href="#forgot-password" class="toc-h2 toc-link" data-title="Forgot password">Forgot password</a>
+                  </li>
+                  <li>
+                    <a href="#validate-reset-password-token" class="toc-h2 toc-link" data-title="Validate reset password token">Validate reset password token</a>
+                  </li>
+                  <li>
+                    <a href="#reset-password" class="toc-h2 toc-link" data-title="Reset password">Reset password</a>
+                  </li>
+              </ul>
+          </li>
+      </div>
+        <ul class="toc-footer">
+            <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
+        </ul>
+    </div>
+    <div class="page-wrapper">
+      <div class="dark-box"></div>
+      <div class="content">
+        <h1 id='introduction'>Introduction</h1>
+<p>Welcome to the League of Code API!</p>
+
+<p>This is the official specification of the online hackathon platform designed
+by GUL-UC3M.</p>
+<h1 id='authentication'>Authentication</h1>
+<p>Authentication in the League of Code API is performed by means of <a href="https://jwt.io/">JSON Web
+Tokens</a>. For each authenticated endpoint, a <code>token</code> parameter
+containing the current JWT must be included in the request JSON. This token
+can be obtained from the <a href="#login"><code>/v1/account/login</code></a> endpoint.</p>
+
+<blockquote>
+<p>Token missing from request [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Request was missing the 'token' attribute "</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Token expired [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT was expired"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Token (de)coding error [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT coding error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>For each authenticated endpoint, the server may reply with a <code>401</code> code if the
+JWT sent is not valid or a <code>500</code> code if there were coding errors while
+(de)coding de token.</p>
+<h1 id='api-models'>API models</h1>
+<p>The relations of the database models can be seen in the next image:</p>
+
+<p><img src="images/relations.png" alt="Database relations" /></p>
+<h2 id='user'>User</h2>
+<p>User accounts in the platform (including administrator ones).</p>
+
+<p>Note that session management is performed by means of a JWT token obtained
+through the <code>api/v1/users/login</code> endpoint.</p>
+
+<p>User roles are registered in the <code>user_roles</code> relationship, and are
+checked on certain operations.</p>
+
+<p>Users can follow other users. Followers can see matches in which other users
+have participated. This is done through the <code>followers</code> relation (<code>Follower</code>
+model).</p>
+<h3 id='attributes'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the user</td>
+</tr>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Unique username of the user</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>(Optional) Real name of the user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Unique email of the user, necessary for any communication (e.g. restoring a password)</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Hashed password</td>
+</tr>
+<tr>
+<td>score</td>
+<td>integer</td>
+<td>Total score obtained by participating in matches</td>
+</tr>
+<tr>
+<td>password_reset_token</td>
+<td>integer</td>
+<td><strong>Generated on demand</strong>. This token is used to restore the password. It must be <strong>unique and 32 characters long</strong></td>
+</tr>
+<tr>
+<td>token_expiration</td>
+<td>date</td>
+<td>Date(time) in which the <code>password_reset_token</code> expires and a new one has to be generated</td>
+</tr>
+<tr>
+<td>is_deleted</td>
+<td>boolean</td>
+<td>Flag indicating soft delete</td>
+</tr>
+<tr>
+<td>delete_date</td>
+<td>date</td>
+<td>Date in which the user was (soft) deleted</td>
+</tr>
+</tbody></table>
+<h2 id='role'>Role</h2>
+<p>Roles of the system.</p>
+
+<p>The roles assigned to each user are checked when performing operations such as
+administration tasks.</p>
+
+<p>Note that User-Role relations are stored in the <code>user_roles</code> relationship.</p>
+<h3 id='attributes-2'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the role</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>Unique descriptive name of the role</td>
+</tr>
+</tbody></table>
+<h2 id='follower'>Follower</h2>
+<p>Users can follow other users, and this act is recorded in the <code>followers</code> table,
+which also contains a date(time) of when the follower started following the
+followee.</p>
+<h3 id='attributes-3'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>follower_id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the follower</td>
+</tr>
+<tr>
+<td><strong>followee_id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the followee</td>
+</tr>
+<tr>
+<td>follow_date</td>
+<td>date</td>
+<td>Date(time) in which the follower started following the followee</td>
+</tr>
+</tbody></table>
+<h2 id='match'>Match</h2>
+<p>Matches are programming contests created by the administrators of the platform.
+Each match has three main periods:</p>
+
+<ul>
+<li><strong>Preparation</strong>: from the match is published to the beginning of the match,
+users can sign up for matches by participating alone (when possible), creating
+a party that other users can join, or joining an existing party</li>
+<li><strong>Match</strong>: from the beginning to the end of the match, teams can view the
+full description of the problem tosolve and submit their solutions. No more
+parties can enter the match at this point</li>
+<li><strong>Evaluation</strong>: after the end of the match, administrators evaluate the
+submissions and teams are given a score accordingly</li>
+</ul>
+
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the match</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Title of the match</td>
+</tr>
+<tr>
+<td>short_description</td>
+<td>string</td>
+<td>Short description of the match. Ideally, it should be used to show very little information on the match as to not provide any sort of advantage to the participants until the match begins</td>
+</tr>
+<tr>
+<td>long_description</td>
+<td>string</td>
+<td>Long description of the match. As opposed to <code>short_description</code>, this one should contain the topic ofthe match and any additional details such as rules (e.g. <em>use a specific technology or language</em>). <strong>Should only be shown when the match starts</strong></td>
+</tr>
+<tr>
+<td>start_date</td>
+<td>date</td>
+<td>Date(time) in which the match starts (<code>long_description</code> is visible, no more parties can be formed or participate, and submissions are accepted)</td>
+</tr>
+<tr>
+<td>end_date</td>
+<td>date</td>
+<td>Date(time) in which the match ends (no more submissions are accepted)</td>
+</tr>
+<tr>
+<td>min_members</td>
+<td>integer</td>
+<td>Minimum number of participants in a party</td>
+</tr>
+<tr>
+<td>max_members</td>
+<td>integer</td>
+<td>Maximum number of participants in a party</td>
+</tr>
+<tr>
+<td>slug</td>
+<td>string</td>
+<td>Unique slug created from the tittle of the match (useful for pretty URLs)</td>
+</tr>
+<tr>
+<td>is_visible</td>
+<td>boolean</td>
+<td>Whether the match has been published or not</td>
+</tr>
+<tr>
+<td>is_deleted</td>
+<td>boolean</td>
+<td>Flag indicating soft delete</td>
+</tr>
+<tr>
+<td>delete_date</td>
+<td>date</td>
+<td>Date in which the match was (soft) deleted</td>
+</tr>
+</tbody></table>
+<h2 id='matchparticipant'>MatchParticipant</h2>
+<p>Match participants and parties are represented with through this model.</p>
+
+<p>Several things to consider:</p>
+
+<ul>
+<li>The <code>party_owner_id</code> indicates the owner/leader of the party. If the value
+is the same as <code>user_id</code>, then the user is the owner/leader of the party and
+may invite others to join them</li>
+<li>In order to invite other users to join a party, the owner must create a token
+that can be used to join the party (until a maximum of members is reached).
+This token is created on demand when a party is created, and is deleted when
+the owner joins a different party</li>
+<li>Users may join the party without knowing the token if the owner marks the
+token as public, which in turn shows the party in a <em>Looking For Group</em> section</li>
+</ul>
+<h3 id='attributes-4'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>user_id</strong></td>
+<td>integer</td>
+<td>(Primary key) User ID [Foreign key]</td>
+</tr>
+<tr>
+<td><strong>match_id</strong></td>
+<td>integer</td>
+<td>(Primary key) Match ID [Foreign key]</td>
+</tr>
+<tr>
+<td>party_owner_id</td>
+<td>integer</td>
+<td>ID of the owner of the party the user is currently in [Foreign key]</td>
+</tr>
+<tr>
+<td>is_participating</td>
+<td>boolean</td>
+<td>Flag that is set when the match begins indicating whether the user is participating in the match (e.g. the party has the required number of members)</td>
+</tr>
+</tbody></table>
+<h2 id='partytoken'>PartyToken</h2>
+<p>Party tokens are used to join a party.</p>
+
+<p>These tokens are created on demand when the user signs up for a match and is
+the owner of the party they are currently in. The token is deleted when
+the user joins a different party.</p>
+<h3 id='attributes-5'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>owner_id</strong></td>
+<td>integer</td>
+<td>(Primary key) Owner ID [Foreign key]</td>
+</tr>
+<tr>
+<td><strong>match_id</strong></td>
+<td>integer</td>
+<td>(Primary key) Match ID [Foreign key]</td>
+</tr>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Unique 32-character random token</td>
+</tr>
+<tr>
+<td>is_public</td>
+<td>boolean</td>
+<td>Flag used to specify whether the party can be found through the <em>Looking For Group</em> section. If this value is False (default), the owner</td>
+</tr>
+<tr>
+<td>must provide the link to join the party manually</td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
+<h2 id='submission'>Submission</h2>
+<p>Submissions are the resulting projects created by the participants at the end of
+a match.</p>
+
+<p>Each party can have one submission per match, and this submission must be
+created by the party leader.</p>
+
+<p>Submissions can be edited until the match is closed.</p>
+<h3 id='attributes-6'>Attributes</h3>
+<table><thead>
+<tr>
+<th>Attribute</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td><strong>id</strong></td>
+<td>integer</td>
+<td>(Primary key) Unique ID of the submission</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Short title of the project</td>
+</tr>
+<tr>
+<td>description</td>
+<td>string</td>
+<td>Long description of the project</td>
+</tr>
+<tr>
+<td>url</td>
+<td>string</td>
+<td>URL from which the project can be downloaded</td>
+</tr>
+<tr>
+<td>match_id</td>
+<td>integer</td>
+<td>ID of the match [Foreign key]</td>
+</tr>
+<tr>
+<td>party_owner_id</td>
+<td>integer</td>
+<td>ID of the leader/owner of the party (used to identify the party) [Foreign key]</td>
+</tr>
+</tbody></table>
+<h1 id='v1-account'>/v1/account</h1>
+<p>The <code>account</code> endpoint implements functionalities related to the management of
+a user&#39;s own account.</p>
+<h2 id='signup'>Signup</h2>
+<p>Create a new user record in the server.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v1/account/signup</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"my_email@example.com"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mypassword"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Unique username for the new user</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Unique email for the new user</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Password for the new user (will be stored encrypted)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response'>HTTP Response</h3>
+<blockquote>
+<p>Example response [201]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_user"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A user with the specified details already exists"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error creating record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>User is created correctly, returns newly created user&#39;s username</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing (indicated in response)</td>
+</tr>
+<tr>
+<td>409</td>
+<td>User with the specified username/email already exists, returns error message</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+<h2 id='login'>Login</h2>
+<p>Login using the provided username and password in order to obtain a JSON Web
+Token (necessary for most endpoints).</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>POST /v1/account/login</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_user"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mypassword"</span><span class="w">
+    </span><span class="s2">"remember_me"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>username</td>
+<td>string</td>
+<td>Username to use for login</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>Password to use for login</td>
+</tr>
+<tr>
+<td>remember_me</td>
+<td>string</td>
+<td>Whether the session should remain active or expire</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-2'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check field for errors"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Check field for errors"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Credentials are valid, returns JWT</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Credentials are not valid</td>
+</tr>
+</tbody></table>
+<h2 id='logout'>Logout</h2>
+<p>TODO</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/account/logout</code></p>
+<h2 id='get-own-profile'>Get own profile</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Obtain the profile of the currently logged in user.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET /v1/account/profile</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-3'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"currentuser"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Current user"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"points"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User was not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Profile was found, returns shown user attributes</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Profile was not found (or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='update-own-profile'>Update own profile</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Update profile details of the currently logged in user.</p>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>PUT /v1/account/profile</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New User McUser"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newmail@example.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>name</td>
+<td>string</td>
+<td>New real name to show (optional)</td>
+</tr>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>New email to use for communication with the user (required)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-4'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"name"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New User McUser"</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"newmail@example.com"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User was not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Error updating record"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Profile was found, returns new details</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Profile was not found (or removed)</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+
+<aside class="success">
+<strong>Note</strong>: if the name is not provided, the current name will be returned in the
+response.
+</aside>
+<h2 id='get-followers'>Get followers</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Get users that follow the currently logged in user.</p>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET /v1/account/followers</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-5'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User was not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Logged in, returns list of followers</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Profile was not found (or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='get-users-followed'>Get users followed</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Get users followed by the currently logged in user.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>GET /v1/account/following</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-6'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-6'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User was not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Logged in, returns list of followees</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Profile was not found (or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='change-password'>Change password</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Change current password (<strong>only when the user is logged in</strong>).</p>
+<h3 id='http-request-8'>HTTP Request</h3>
+<p><code>POST /v1/account/change-password</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycurrent_password"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"new_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mynew_password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-7'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>current_password</td>
+<td>string</td>
+<td>Currently set password</td>
+</tr>
+<tr>
+<td>new_password</td>
+<td>string</td>
+<td>New password to set</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-7'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
+        </span><span class="s2">"new_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password not complex enough"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid password"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User was not found"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Password changed</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing or incomplete (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Current password was incorrect</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Profile was not found (or removed)</td>
+</tr>
+</tbody></table>
+<h2 id='forgot-password'>Forgot password</h2>
+<p>Generate a password reset token.</p>
+
+<p>Note that the endpoint will not specify whether the email address is valid
+and belongs to a user account.</p>
+<h3 id='http-request-9'>HTTP Request</h3>
+<p><code>POST /v1/account/forgot-password</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myemail@example.com"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-8'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>email</td>
+<td>string</td>
+<td>Email of the account</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-8'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Server error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Password reset token generated (if the email exists)</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+<h2 id='validate-reset-password-token'>Validate reset password token</h2>
+<p>Validate the token generated in <code>/v1/account/forgot-password</code>.</p>
+
+<p>If this token is valid, then it is possible to make a <code>POST</code> request with the
+new password.</p>
+<h3 id='http-request-10'>HTTP Request</h3>
+<p><code>GET /v1/account/reset-password/&lt;token&gt;</code></p>
+<h3 id='parameters-9'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Reset password token</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-9'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response[404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid token"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Server error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Reset token exists</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Reset token was not found</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+<h2 id='reset-password'>Reset password</h2>
+<p>Reset password.</p>
+
+<p>While it is possible to skip checking whether the token from
+<code>v1/account/forgot-password</code> is valid (by performing a <code>GET</code> request to this
+endpoint), it is not recommended.</p>
+
+<aside class="warning">
+<strong>NOTE</strong>: This invalidates all JWT for the specified user.
+</aside>
+<h3 id='http-request-11'>HTTP Request</h3>
+<p><code>POST /v1/account/reset-password/&lt;token&gt;</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"confirm_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-10'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>Password reset token</td>
+</tr>
+<tr>
+<td>password</td>
+<td>string</td>
+<td>New password</td>
+</tr>
+<tr>
+<td>confirm_password</td>
+<td>string</td>
+<td>Password confirmation</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-10'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="w">    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not complex enough"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"confirm_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passwords do not match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [500]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Server error"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Password has been changed</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Password was not complex enough or the confirmation did not match</td>
+</tr>
+<tr>
+<td>500</td>
+<td>Server error</td>
+</tr>
+</tbody></table>
+
+      </div>
+      <div class="dark-box">
+      </div>
+    </div>
+  </body>
+</html>
