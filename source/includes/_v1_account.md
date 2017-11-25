@@ -154,6 +154,8 @@ The following HTTP codes can be returned by this endpoint:
 
 ## Logout
 
+TODO
+
 ### HTTP Request
 
 `GET /v1/account/logout`
