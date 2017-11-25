@@ -337,6 +337,15 @@ Get users that follow the currently logged in user.
 }
 ```
 
+> Example response [401]:
+
+```json
+{
+    "status": "error",
+    "message": "User not logged in"
+}
+```
+
 > Example response [404]:
 
 ```json
@@ -356,8 +365,345 @@ The following HTTP codes can be returned by this endpoint:
 
 ## Get users followed
 
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+Get users followed by the currently logged in user.
+
+### HTTP Request
+
+`GET /v1/account/following`
+
+> Example request:
+
+```json
+{
+    "token": "JWT_TOKEN",
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | JSON Web Token (obtained from `/v1/account/login`) |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": [
+        {
+            "username": "friend_a",
+            "follow_date": "2017-01-01 00:00"
+        },
+        {
+            "username": "friend_b",
+            "follow_date": "2017-01-02 00:00"
+        }
+    ]
+}
+```
+
+> Example response [401]:
+
+```json
+{
+    "status": "error",
+    "message": "User not logged in"
+}
+```
+
+> Example response [404]:
+
+```json
+{
+    "status": "error",
+    "message": "User was not found"
+}
+```
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Logged in, returns list of followees |
+| 401 | Not logged in |
+| 404 | Profile was not found (or removed) |
+
 ## Change password
+
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+Change current password (**only when the user is logged in**).
+
+### HTTP Request
+
+`POST /v1/account/change-password`
+
+> Example request:
+
+```json
+{
+    "token": "JWT_TOKEN",
+    "current_password": "mycurrent_password",
+    "new_password": "mynew_password"
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | JSON Web Token (obtained from `/v1/account/login`) |
+| current_password | string | Currently set password |
+| new_password | string | New password to set |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {}
+}
+```
+
+> Example response [400]:
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "password": "Field was missing in request"
+        "new_password": "Password not complex enough"
+    }
+}
+```
+
+> Example response [401]:
+
+```json
+{
+    "status": "error",
+    "message": "User not logged in"
+}
+```
+
+> Example response [403]:
+
+```json
+{
+    "status": "error",
+    "message": "Invalid password"
+}
+```
+
+> Example response [404]:
+
+```json
+{
+    "status": "error",
+    "message": "User was not found"
+}
+```
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Password changed |
+| 400 | Some parameters are missing or incomplete (indicated in response) |
+| 401 | Not logged in |
+| 403 | Current password was incorrect |
+| 404 | Profile was not found (or removed) |
 
 ## Forgot password
 
+Generate a password reset token.
+
+Note that the endpoint will not specify whether the email address is valid
+and belongs to a user account.
+
+### HTTP Request
+
+`POST /v1/account/forgot-password`
+
+> Example request:
+
+```json
+{
+    "email": "myemail@example.com"
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| email | string | Email of the account |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {}
+}
+```
+
+> Example response [500]:
+
+```json
+{
+    "status": "error",
+    "message": "Server error"
+}
+```
+
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Password reset token generated (if the email exists) |
+| 500 | Server error |
+
+
+## Validate reset password token
+
+Validate the token generated in `/v1/account/forgot-password`.
+
+If this token is valid, then it is possible to make a `POST` request with the
+new password.
+
+### HTTP Request
+
+`GET /v1/account/reset-password/<token>`
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | Reset password token |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {}
+}
+```
+
+> Example response[404]:
+
+```json
+{
+    "status": "error",
+    "message": "Invalid token"
+}
+```
+
+> Example response [500]:
+
+```json
+{
+    "status": "error",
+    "message": "Server error"
+}
+```
+
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Reset token exists |
+| 404 | Reset token was not found |
+| 500 | Server error |
+
+
 ## Reset password
+
+Reset password.
+
+While it is possible to skip checking whether the token from
+`v1/account/forgot-password` is valid (by performing a `GET` request to this
+endpoint), it is not recommended.
+
+<aside class="warning">
+<strong>NOTE</strong>: This invalidates all JWT for the specified user.
+</aside>
+
+### HTTP Request
+
+`POST /v1/account/reset-password/<token>`
+
+> Example request:
+
+```json
+{
+    "password": "myresetpassword",
+    "confirm_password": "myresetpassword"
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | Password reset token |
+| password | string | New password |
+| confirm_password | string | Password confirmation |
+
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {}
+}
+```
+
+> Example response [400]:
+
+```json
+    "status": "fail",
+    "data": {
+        "password": "Not complex enough",
+        "confirm_password": "Passwords do not match"
+    }
+```
+
+> Example response [500]:
+
+```json
+{
+    "status": "error",
+    "message": "Server error"
+}
+```
+
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Password has been changed |
+| 400 | Password was not complex enough or the confirmation did not match |
+| 500 | Server error |
