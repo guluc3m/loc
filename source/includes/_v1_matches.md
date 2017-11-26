@@ -602,9 +602,12 @@ submissions from other parties after the match.
 
 ```json
 {
-    "title": "Super submission 9000",
-    "description": "This is an awesome submission that simply works",
-    "url": "https://github.com/guluc3m"
+    "status": "success",
+    "data": {
+        "title": "Super submission 9000",
+        "description": "This is an awesome submission that simply works",
+        "url": "https://github.com/guluc3m"
+    }
 }
 ```
 
