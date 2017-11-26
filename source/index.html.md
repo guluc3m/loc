@@ -4,6 +4,7 @@ title: League of Code API Reference
 
 toc_footers:
   - <a href='https://github.com/lord/slate'>Documentation Powered by Slate</a>
+  - © Grupo de Usuarios de Linux de la Universidad Carlos III de Madrid. 2017
 
 includes:
   - models 
