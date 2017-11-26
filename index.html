@@ -369,6 +369,32 @@
                   </li>
               </ul>
           </li>
+          <li>
+            <a href="#v1-admin" class="toc-h1 toc-link" data-title="/v1/admin">/v1/admin</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#create-a-match" class="toc-h2 toc-link" data-title="Create a match">Create a match</a>
+                  </li>
+                  <li>
+                    <a href="#modify-a-match" class="toc-h2 toc-link" data-title="Modify a match">Modify a match</a>
+                  </li>
+                  <li>
+                    <a href="#delete-undelete-a-match" class="toc-h2 toc-link" data-title="Delete/Undelete a match">Delete/Undelete a match</a>
+                  </li>
+                  <li>
+                    <a href="#list-deleted-matches" class="toc-h2 toc-link" data-title="List deleted matches">List deleted matches</a>
+                  </li>
+                  <li>
+                    <a href="#list-users" class="toc-h2 toc-link" data-title="List users">List users</a>
+                  </li>
+                  <li>
+                    <a href="#list-deleted-banned-users" class="toc-h2 toc-link" data-title="List deleted/banned users">List deleted/banned users</a>
+                  </li>
+                  <li>
+                    <a href="#ban-unban-user" class="toc-h2 toc-link" data-title="Ban/unban user">Ban/unban user</a>
+                  </li>
+              </ul>
+          </li>
       </div>
         <ul class="toc-footer">
             <li><a href='https://github.com/lord/slate'>Documentation Powered by Slate</a></li>
@@ -880,7 +906,7 @@ Token (necessary for most endpoints).</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test_user"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mypassword"</span><span class="w">
-    </span><span class="s2">"remember_me"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="s2">"remember-me"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters-2'>Parameters</h3>
 <table><thead>
@@ -901,7 +927,7 @@ Token (necessary for most endpoints).</p>
 <td>Password to use for login</td>
 </tr>
 <tr>
-<td>remember_me</td>
+<td>remember-me</td>
 <td>string</td>
 <td>Whether the session should remain active or expire</td>
 </tr>
@@ -1163,11 +1189,11 @@ Authenticated endpoint.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1247,11 +1273,11 @@ Authenticated endpoint.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1307,8 +1333,8 @@ Authenticated endpoint.
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"current_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycurrent_password"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"new_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mynew_password"</span><span class="w">
+    </span><span class="s2">"current-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mycurrent_password"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"new-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"mynew_password"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters-7'>Parameters</h3>
 <table><thead>
@@ -1324,12 +1350,12 @@ Authenticated endpoint.
 <td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
 </tr>
 <tr>
-<td>current_password</td>
+<td>current-password</td>
 <td>string</td>
 <td>Currently set password</td>
 </tr>
 <tr>
-<td>new_password</td>
+<td>new-password</td>
 <td>string</td>
 <td>New password to set</td>
 </tr>
@@ -1350,7 +1376,7 @@ Authenticated endpoint.
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
-        </span><span class="s2">"new_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password not complex enough"</span><span class="w">
+        </span><span class="s2">"new-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password not complex enough"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1562,7 +1588,7 @@ endpoint), it is not recommended.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"PASSWORD_RESET_TOKEN"</span><span class="w">
     </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"confirm_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="w">
+    </span><span class="s2">"confirm-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"myresetpassword"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters-10'>Parameters</h3>
 <table><thead>
@@ -1583,7 +1609,7 @@ endpoint), it is not recommended.</p>
 <td>New password</td>
 </tr>
 <tr>
-<td>confirm_password</td>
+<td>confirm-password</td>
 <td>string</td>
 <td>Password confirmation</td>
 </tr>
@@ -1603,7 +1629,7 @@ endpoint), it is not recommended.</p>
 <pre class="highlight json tab-json"><code><span class="w">    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Not complex enough"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"confirm_password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passwords do not match"</span><span class="w">
+        </span><span class="s2">"confirm-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Passwords do not match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1682,14 +1708,14 @@ as well as the total number of pages.
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test match"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 9000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-9000"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
@@ -1753,14 +1779,14 @@ as well as the total number of pages.
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Old McOld Match"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"old-mcold-match"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 8000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-02-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-8000"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
@@ -1812,12 +1838,12 @@ long description of the match if it has not yet started.</p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Present match"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"long_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description of the match"</span><span class="w">
-        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"min_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"long-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description of the match"</span><span class="w">
+        </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"present-match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1829,11 +1855,11 @@ long description of the match if it has not yet started.</p>
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
         </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Future match"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"short_description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"min_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max_team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"short-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 00:00"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future-match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3234,8 +3260,8 @@ as well as the total number of pages.
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test match"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3247,8 +3273,8 @@ as well as the total number of pages.
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super match"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01 00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-01 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2018-01-05 00:00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-match"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3352,8 +3378,8 @@ as well as the total number of pages.
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Past match"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01 00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-05 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-05 00:00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"past-match"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3365,8 +3391,8 @@ as well as the total number of pages.
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
                     </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super match 7000"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01 00:00"</span><span class="p">,</span><span class="w">
-                    </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-05 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-01 00:00"</span><span class="p">,</span><span class="w">
+                    </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-01-05 00:00"</span><span class="p">,</span><span class="w">
                     </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-match-7000"</span><span class="w">
                 </span><span class="p">},</span><span class="w">
                 </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
@@ -3517,11 +3543,11 @@ as well as the total number of pages.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3587,11 +3613,11 @@ as well as the total number of pages.
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
         </span><span class="p">},</span><span class="w">
         </span><span class="p">{</span><span class="w">
             </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
+            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
         </span><span class="p">}</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3785,14 +3811,14 @@ as well as the total number of pages.
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test match"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 9000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-9000"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
@@ -3874,14 +3900,14 @@ as well as the total number of pages.
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Past match"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2016-01-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"past-match"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 8000"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"start_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01 00:00"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"end_date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2015-02-05 00:00"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-8000"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
@@ -3913,6 +3939,845 @@ as well as the total number of pages.
 <tr>
 <td>404</td>
 <td>User was not found</td>
+</tr>
+</tbody></table>
+<h1 id='v1-admin'>/v1/admin</h1>
+<p>The <code>admin</code> endpoint implements functionalities related to the management of the
+platform.</p>
+
+<aside class="warning">
+All of the following endpoints require an `admin` role in the user account.
+</aside>
+<h2 id='create-a-match'>Create a match</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Create a new match.</p>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>POST /v1/admin/match</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"New match title"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"short-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a short description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"long-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>title</td>
+<td>string</td>
+<td>Title for the match</td>
+</tr>
+<tr>
+<td>short-description</td>
+<td>string</td>
+<td>Short description for the match</td>
+</tr>
+<tr>
+<td>long-description</td>
+<td>string</td>
+<td>Long description for the match</td>
+</tr>
+<tr>
+<td>start-date</td>
+<td>date</td>
+<td>Starting date(time) of the match</td>
+</tr>
+<tr>
+<td>end-date</td>
+<td>date</td>
+<td>Ending date(time) of the match</td>
+</tr>
+<tr>
+<td>min-team</td>
+<td>integer</td>
+<td>Minimum number of members required in a party</td>
+</tr>
+<tr>
+<td>max-team</td>
+<td>integer</td>
+<td>Maximum number of members allowed in a party</td>
+</tr>
+<tr>
+<td>is-visible</td>
+<td>boolean</td>
+<td>Whether the match can be found when querying the matches</td>
+</tr>
+</tbody></table>
+<h3 id='http-response'>HTTP Response</h3>
+<blockquote>
+<p>Example response [201]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Cannot be empty"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A match with this title already exists"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>201</td>
+<td>Match created, returns match slug</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing or incomplete (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+<tr>
+<td>409</td>
+<td>A match with that slug/title already exists</td>
+</tr>
+</tbody></table>
+<h2 id='modify-a-match'>Modify a match</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Modify an existing match.</p>
+
+<p>Note that changing the title also changes the slug.</p>
+<h3 id='http-request-2'>HTTP Request</h3>
+<p><code>PUT /v1/admin/match</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current-match-slug"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-2'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to modify</td>
+</tr>
+</tbody></table>
+
+<p>Every parameter shown in the <a href="#create-a-match">Create a match</a> endpoint can be
+used to modify the specific attribute.</p>
+<h3 id='http-response-2'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid type"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A match with this title already exists"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Match modified, returns match slug</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Some parameters are missing or incomplete (indicated in response)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match does not exist</td>
+</tr>
+<tr>
+<td>409</td>
+<td>A match with that slug/title already exists</td>
+</tr>
+</tbody></table>
+<h2 id='delete-undelete-a-match'>Delete/Undelete a match</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Delete/Undelete a match.</p>
+
+<p>This is a soft delete and can be undone.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>PUT /v1/admin/match-delete</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current-match-slug"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to delete</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>boolean</td>
+<td>Whether to delete (true) or undelete (false) a match</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-3'>HTTP Response</h3>
+<blockquote>
+<p>Example response (delete) [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10 15:50"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response (undelete) [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"restored-match"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match was already deleted"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Match deleted/undeleted, returns deletion date (when deleting) or match slug (when undeleting)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match does not exist</td>
+</tr>
+<tr>
+<td>409</td>
+<td>The match was already deleted/undeleted</td>
+</tr>
+</tbody></table>
+<h2 id='list-deleted-matches'>List deleted matches</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Obtain a list of deleted matches.</p>
+
+<aside class="success">
+The list of matches is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>GET /v1/admin/deleted-matches</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-4'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Test match"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"title"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Super awesome match 9000"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-02-01 00:00"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"super-awesome-match-9000"</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of matches</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+</tbody></table>
+<h2 id='list-users'>List users</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Obtain a complete list of active users.</p>
+
+<aside class="success">
+The list of users is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request-5'>HTTP Request</h3>
+<p><code>GET /v1/admin/users</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-5'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-5'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user4"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of users</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+</tbody></table>
+<h2 id='list-deleted-banned-users'>List deleted/banned users</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Obtain a list of banned/deleted users.</p>
+
+<aside class="success">
+The list of users is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+<h3 id='http-request-6'>HTTP Request</h3>
+<p><code>GET /v1/admin/deleted-users</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-6'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-6'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user2"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"user4"</span><span class="w">
+        </span><span class="p">]</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>List of users</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+</tbody></table>
+<h2 id='ban-unban-user'>Ban/unban user</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Ban/Unban a user.</p>
+<h3 id='http-request-7'>HTTP Request</h3>
+<p><code>PUT /v1/admin/user-delete</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username-to-ban"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-7'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>user</td>
+<td>string</td>
+<td>Username of the user to ban</td>
+</tr>
+<tr>
+<td>delete</td>
+<td>boolean</td>
+<td>Whether to delete (true) or undelete (false) a match</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-7'>HTTP Response</h3>
+<blockquote>
+<p>Example response (delete) [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10 15:50"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response (undelete) [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username-to-delete"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [401]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"User not logged in"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [409]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match was already deleted"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>User deleted/undeleted, returns deletion date (when deleting) or username (when undeleting)</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+<tr>
+<td>404</td>
+<td>User does not exist</td>
+</tr>
+<tr>
+<td>409</td>
+<td>The user was already deleted/undeleted</td>
 </tr>
 </tbody></table>
 
