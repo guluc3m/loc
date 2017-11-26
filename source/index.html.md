@@ -11,6 +11,7 @@ includes:
   - v1_matches
   - v1_parties
   - v1_users
+  - v1_admin
 
 search: true
 ---

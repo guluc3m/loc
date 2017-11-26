@@ -96,7 +96,7 @@ Token (necessary for most endpoints).
 {
     "username": "test_user",
     "password": "mypassword"
-    "remember_me": false
+    "remember-me": false
 }
 ```
 
@@ -106,7 +106,7 @@ Token (necessary for most endpoints).
 | --- | --- | --- |
 | username | string | Username to use for login |
 | password | string | Password to use for login |
-| remember_me | string | Whether the session should remain active or expire |
+| remember-me | string | Whether the session should remain active or expire |
 
 ### HTTP Response
 
@@ -329,11 +329,11 @@ Get users that follow the currently logged in user.
     "data": [
         {
             "username": "friend_a",
-            "follow_date": "2017-01-01 00:00"
+            "follow-date": "2017-01-01 00:00"
         },
         {
             "username": "friend_b",
-            "follow_date": "2017-01-02 00:00"
+            "follow-date": "2017-01-02 00:00"
         }
     ]
 }
@@ -401,11 +401,11 @@ Get users followed by the currently logged in user.
     "data": [
         {
             "username": "friend_a",
-            "follow_date": "2017-01-01 00:00"
+            "follow-date": "2017-01-01 00:00"
         },
         {
             "username": "friend_b",
-            "follow_date": "2017-01-02 00:00"
+            "follow-date": "2017-01-02 00:00"
         }
     ]
 }
@@ -454,8 +454,8 @@ Change current password (**only when the user is logged in**).
 ```json
 {
     "token": "JWT_TOKEN",
-    "current_password": "mycurrent_password",
-    "new_password": "mynew_password"
+    "current-password": "mycurrent_password",
+    "new-password": "mynew_password"
 }
 ```
 
@@ -464,8 +464,8 @@ Change current password (**only when the user is logged in**).
 | Parameter | Type | Description |
 | --- | --- | --- |
 | token | string | JSON Web Token (obtained from `/v1/account/login`) |
-| current_password | string | Currently set password |
-| new_password | string | New password to set |
+| current-password | string | Currently set password |
+| new-password | string | New password to set |
 
 ### HTTP Response
 
@@ -485,7 +485,7 @@ Change current password (**only when the user is logged in**).
     "status": "fail",
     "data": {
         "password": "Field was missing in request"
-        "new_password": "Password not complex enough"
+        "new-password": "Password not complex enough"
     }
 }
 ```
@@ -667,7 +667,7 @@ endpoint), it is not recommended.
 {
     "token": "PASSWORD_RESET_TOKEN"
     "password": "myresetpassword",
-    "confirm_password": "myresetpassword"
+    "confirm-password": "myresetpassword"
 }
 ```
 
@@ -677,7 +677,7 @@ endpoint), it is not recommended.
 | --- | --- | --- |
 | token | string | Password reset token |
 | password | string | New password |
-| confirm_password | string | Password confirmation |
+| confirm-password | string | Password confirmation |
 
 
 ### HTTP Response
@@ -697,7 +697,7 @@ endpoint), it is not recommended.
     "status": "fail",
     "data": {
         "password": "Not complex enough",
-        "confirm_password": "Passwords do not match"
+        "confirm-password": "Passwords do not match"
     }
 ```
 

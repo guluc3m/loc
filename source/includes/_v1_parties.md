@@ -586,8 +586,8 @@ as well as the total number of pages.
             {
                 "match": {
                     "title": "Test match",
-                    "start_date": "2017-01-01 00:00",
-                    "end_date": "2017-01-05 00:00",
+                    "start-date": "2017-01-01 00:00",
+                    "end-date": "2017-01-05 00:00",
                     "slug": "test-match"
                 },
                 "party": {
@@ -599,8 +599,8 @@ as well as the total number of pages.
             {
                 "match": {
                     "title": "Super match",
-                    "start_date": "2018-01-01 00:00",
-                    "end_date": "2018-01-05 00:00",
+                    "start-date": "2018-01-01 00:00",
+                    "end-date": "2018-01-05 00:00",
                     "slug": "super-match"
                 },
                 "party": {
@@ -691,8 +691,8 @@ as well as the total number of pages.
             {
                 "match": {
                     "title": "Past match",
-                    "start_date": "2016-01-01 00:00",
-                    "end_date": "2016-01-05 00:00",
+                    "start-date": "2016-01-01 00:00",
+                    "end-date": "2016-01-05 00:00",
                     "slug": "past-match"
                 },
                 "party": {
@@ -704,8 +704,8 @@ as well as the total number of pages.
             {
                 "match": {
                     "title": "Super match 7000",
-                    "start_date": "2015-01-01 00:00",
-                    "end_date": "2015-01-05 00:00",
+                    "start-date": "2015-01-01 00:00",
+                    "end-date": "2015-01-05 00:00",
                     "slug": "super-match-7000"
                 },
                 "party": {

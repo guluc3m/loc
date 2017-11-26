@@ -90,11 +90,11 @@ Get users that follow the specified user.
     "data": [
         {
             "username": "friend_a",
-            "follow_date": "2017-01-01 00:00"
+            "follow-date": "2017-01-01 00:00"
         },
         {
             "username": "friend_b",
-            "follow_date": "2017-01-02 00:00"
+            "follow-date": "2017-01-02 00:00"
         }
     ]
 }
@@ -151,11 +151,11 @@ Get users followed by the specified user.
     "data": [
         {
             "username": "friend_a",
-            "follow_date": "2017-01-01 00:00"
+            "follow-date": "2017-01-01 00:00"
         },
         {
             "username": "friend_b",
-            "follow_date": "2017-01-02 00:00"
+            "follow-date": "2017-01-02 00:00"
         }
     ]
 }
@@ -316,14 +316,14 @@ as well as the total number of pages.
         "list": [
             {
                 "title": "Test match",
-                "start_date": "2017-01-01 00:00",
-                "end_date": "2017-01-05 00:00",
+                "start-date": "2017-01-01 00:00",
+                "end-date": "2017-01-05 00:00",
                 "slug": "test-match"
             },
             {
                 "title": "Super awesome match 9000",
-                "start_date": "2017-02-01 00:00",
-                "end_date": "2017-02-05 00:00",
+                "start-date": "2017-02-01 00:00",
+                "end-date": "2017-02-05 00:00",
                 "slug": "super-awesome-match-9000"
             }
         ] 
@@ -393,14 +393,14 @@ as well as the total number of pages.
         "list": [
             {
                 "title": "Past match",
-                "start_date": "2016-01-01 00:00",
-                "end_date": "2016-01-05 00:00",
+                "start-date": "2016-01-01 00:00",
+                "end-date": "2016-01-05 00:00",
                 "slug": "past-match"
             },
             {
                 "title": "Super awesome match 8000",
-                "start_date": "2015-02-01 00:00",
-                "end_date": "2015-02-05 00:00",
+                "start-date": "2015-02-01 00:00",
+                "end-date": "2015-02-05 00:00",
                 "slug": "super-awesome-match-8000"
             }
         ] 

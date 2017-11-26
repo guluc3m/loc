@@ -46,14 +46,14 @@ as well as the total number of pages.
         "list": [
             {
                 "title": "Test match",
-                "start_date": "2017-01-01 00:00",
-                "end_date": "2017-01-05 00:00",
+                "start-date": "2017-01-01 00:00",
+                "end-date": "2017-01-05 00:00",
                 "slug": "test-match"
             },
             {
                 "title": "Super awesome match 9000",
-                "start_date": "2017-02-01 00:00",
-                "end_date": "2017-02-05 00:00",
+                "start-date": "2017-02-01 00:00",
+                "end-date": "2017-02-05 00:00",
                 "slug": "super-awesome-match-9000"
             }
         ] 
@@ -110,14 +110,14 @@ as well as the total number of pages.
         "list": [
             {
                 "title": "Old McOld Match",
-                "start_date": "2015-01-01 00:00",
-                "end_date": "2015-01-05 00:00",
+                "start-date": "2015-01-01 00:00",
+                "end-date": "2015-01-05 00:00",
                 "slug": "old-mcold-match"
             },
             {
                 "title": "Super awesome match 8000",
-                "start_date": "2016-02-01 00:00",
-                "end_date": "2016-02-05 00:00",
+                "start-date": "2016-02-01 00:00",
+                "end-date": "2016-02-05 00:00",
                 "slug": "super-awesome-match-8000"
             }
         ] 
@@ -164,12 +164,12 @@ long description of the match if it has not yet started.
     "status": "success",
     "data": {
         "title": "Present match",
-        "short_description": "Prepare for the future",
-        "long_description": "This is a long description of the match"
-        "start_date": "2017-01-01 00:00",
-        "end_date": "2017-01-05 00:00",
-        "min_team": 1,
-        "max_team": 2,
+        "short-description": "Prepare for the future",
+        "long-description": "This is a long description of the match"
+        "start-date": "2017-01-01 00:00",
+        "end-date": "2017-01-05 00:00",
+        "min-team": 1,
+        "max-team": 2,
         "slug": "present-match"
     }
 }
@@ -182,11 +182,11 @@ long description of the match if it has not yet started.
     "status": "success",
     "data": {
         "title": "Future match",
-        "short_description": "Prepare for the future",
-        "start_date": "2019-01-01 00:00",
-        "end_date": "2019-01-05 00:00",
-        "min_team": 1,
-        "max_team": 4,
+        "short-description": "Prepare for the future",
+        "start-date": "2019-01-01 00:00",
+        "end-date": "2019-01-05 00:00",
+        "min-team": 1,
+        "max-team": 4,
         "slug": "future-match"
     }
 }
