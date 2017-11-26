@@ -23,6 +23,10 @@ Welcome to the League of Code API!
 This is the official specification of the online hackathon platform designed
 by GUL-UC3M.
 
+# API responses
+
+Each API endpoint follows the [JSend specification](https://labs.omniti.com/labs/jsend), released under a [modified BSD License](https://labs.omniti.com/labs/jsend/wiki/License).
+
 # Authentication
 
 Authentication in the League of Code API is performed by means of [JSON Web
