@@ -3,7 +3,6 @@
 The `parties` endpoint implements functionalities related to match parties.
 
 
-
 ## Join a party
 
 <aside class="notice">

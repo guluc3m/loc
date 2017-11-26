@@ -10,6 +10,7 @@ includes:
   - v1_account
   - v1_matches
   - v1_parties
+  - v1_users
 
 search: true
 ---

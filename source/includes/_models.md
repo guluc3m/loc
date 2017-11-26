@@ -27,7 +27,7 @@ model).
 | name | string | (Optional) Real name of the user |
 | email | string | Unique email of the user, necessary for any communication (e.g. restoring a password) |
 | password | string | Hashed password |
-| score | integer | Total score obtained by participating in matches |
+| points | integer | Total score obtained by participating in matches |
 | password_reset_token | integer | **Generated on demand**. This token is used to restore the password. It must be **unique and 32 characters long** |
 | token_expiration | date | Date(time) in which the `password_reset_token` expires and a new one has to be generated |
 | is_deleted | boolean | Flag indicating soft delete |
@@ -90,6 +90,7 @@ submissions and teams are given a score accordingly
 | end_date | date | Date(time) in which the match ends (no more submissions are accepted) |
 | min_members | integer | Minimum number of participants in a party |
 | max_members | integer | Maximum number of participants in a party |
+| leaderboard | list[integer] | Ordered list of parties taking into account their position after finishing the match |
 | slug | string | Unique slug created from the tittle of the match (useful for pretty URLs) |
 | is_visible | boolean | Whether the match has been published or not |
 | is_deleted | boolean | Flag indicating soft delete |

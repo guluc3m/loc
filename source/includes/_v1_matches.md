@@ -211,6 +211,71 @@ The following HTTP codes can be returned by this endpoint:
 | 404 | Match does not exist, is not visible or was deleted |
 
 
+## Get match leaderboard
+
+Obtain the leaderboard for a given match. This is only possible once the match
+has finished.
+
+The leaderboard consists of an ordered list of the participating parties,
+according to the score they have obtained in the match.
+
+<aside class="success">
+The list of parties is paginated and the response includes the current page
+as well as the total number of pages.
+</aside>
+
+### HTTP Request
+
+`GET /v1/matches/leaderboard`
+
+> Example request:
+
+```json
+{
+    "match": "test-match",
+    "page": 1
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| match | string | Unique slug of the match to get the leaderboard for |
+| page | integer | Page number to fetch (defaults to `1`) |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {
+        "page": 1,
+        "pages": 3,
+        "list": [
+            {
+                "leader": "user32",
+                "members": ["user32", "userc"],
+            },
+            {
+                "leader": "userc",
+                "members": ["userc"],
+            }
+        ] 
+    }
+}
+```
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Ordered party list (list may be empty if the match has not finished) |
+
+
+
 ## Join a match
 
 <aside class="notice">
