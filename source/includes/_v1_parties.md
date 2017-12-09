@@ -90,7 +90,7 @@ The following HTTP codes can be returned by this endpoint:
 | 201 | Joined the party, returns names of party members |
 | 400 | Trying to join a party from a past match (or a running match) |
 | 404 | Party was not found (or invisible or removed) |
-| 409 | Party is full |
+| 409 | Party is full or already in a party |
 
 Note that a party is full when it has a number of members equal to the
 `max_members` attribute of the match.
