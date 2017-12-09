@@ -120,12 +120,11 @@ token as public, which in turn shows the party in a *Looking For Group* section
 | **user_id** | integer | (Primary key) User ID [Foreign key] |
 | **match_id** | integer | (Primary key) Match ID [Foreign key] |
 | party_owner_id | integer | ID of the owner of the party the user is currently in [Foreign key] |
-| is_participating | boolean | Flag that is set when the match begins indicating whether the user is participating in the match (e.g. the party has the required number of members) |
 
 
-## PartyToken
+## Party
 
-Party tokens are used to join a party.
+Party marks. Contain tokens that are used to join a party.
 
 These tokens are created on demand when the user signs up for a match and is
 the owner of the party they are currently in. The token is deleted when
@@ -140,6 +139,7 @@ the user joins a different party.
 | token | string | Unique 32-character random token |
 | is_public | boolean | Flag used to specify whether the party can be found through the *Looking For Group* section. If this value is False (default), the owner
 must provide the link to join the party manually |
+| is_participating | boolean | Flag that is set when the match begins indicating whether the party is participating in the match (e.g. the party has the required number of members) |
 
 
 ## Submission

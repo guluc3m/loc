@@ -12,7 +12,7 @@ Authenticated endpoint.
 Join a party by using the invite token provided by the party leader, or found
 through LFG if the party is public.
 
-By joining a party, the `PartyToken` record created for the user (technically
+By joining a party, the `Party` record created for the user (technically
 in their own party) is deleted, and the `party_owner_id` of the
 `MatchParticipant` record is set to the ID of the leader of the new party.
 
@@ -105,7 +105,7 @@ Authenticated endpoint.
 Leave a party. This can only be performed by non-leader members of the party
 and before the match starts.
 
-When the user leaves a party, a new `PartyToken` record is created to indicate
+When the user leaves a party, a new `Party` record is created to indicate
 that they are in their own party, and the `party_owner_id` in their
 `MatchParticipant` record is set to their own ID.
 
@@ -211,7 +211,7 @@ Only the party leader can perform this action.
 
 Kick another member from a party.
 
-By kicking them, a `PartyToken` record is created for the kicked member (as
+By kicking them, a `Party` record is created for the kicked member (as
 they are now considered to be in their own party), and the `party_owner_id`
 attribute in their `MatchParticipant` record is set to their own ID.
 

@@ -286,7 +286,7 @@ By joining a match, a [`MatchParticipant`](#matchparticipant) record is created
 for the user in the specified match. By default, the user will be in their own
 party, therefore the `party_owner_id` will be the user ID.
 
-In addition, a [`PartyToken`](#partytoken) is also created. This token can be
+In addition, a [`Party`](#party) is also created. The party token can be
 used to invite other users to your own party. It is deleted once the user joins
 a party owned by another user.
 
