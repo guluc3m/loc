@@ -243,7 +243,7 @@
                     <a href="#matchparticipant" class="toc-h2 toc-link" data-title="MatchParticipant">MatchParticipant</a>
                   </li>
                   <li>
-                    <a href="#partytoken" class="toc-h2 toc-link" data-title="PartyToken">PartyToken</a>
+                    <a href="#party" class="toc-h2 toc-link" data-title="Party">Party</a>
                   </li>
                   <li>
                     <a href="#submission" class="toc-h2 toc-link" data-title="Submission">Submission</a>
@@ -705,14 +705,9 @@ token as public, which in turn shows the party in a <em>Looking For Group</em> s
 <td>integer</td>
 <td>ID of the owner of the party the user is currently in [Foreign key]</td>
 </tr>
-<tr>
-<td>is_participating</td>
-<td>boolean</td>
-<td>Flag that is set when the match begins indicating whether the user is participating in the match (e.g. the party has the required number of members)</td>
-</tr>
 </tbody></table>
-<h2 id='partytoken'>PartyToken</h2>
-<p>Party tokens are used to join a party.</p>
+<h2 id='party'>Party</h2>
+<p>Party marks. Contain tokens that are used to join a party.</p>
 
 <p>These tokens are created on demand when the user signs up for a match and is
 the owner of the party they are currently in. The token is deleted when
@@ -749,6 +744,11 @@ the user joins a different party.</p>
 <td>must provide the link to join the party manually</td>
 <td></td>
 <td></td>
+</tr>
+<tr>
+<td>is_participating</td>
+<td>boolean</td>
+<td>Flag that is set when the match begins indicating whether the party is participating in the match (e.g. the party has the required number of members)</td>
 </tr>
 </tbody></table>
 <h2 id='submission'>Submission</h2>
@@ -863,8 +863,8 @@ a user&#39;s own account.</p>
 <p>Example response [409]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
-    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A user with the specified details already exists"</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="s2">"A user with the specified details already exists"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
@@ -1116,6 +1116,16 @@ Authenticated endpoint.
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid email"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Example response [404]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1142,6 +1152,10 @@ Authenticated endpoint.
 <tr>
 <td>200</td>
 <td>Profile was found, returns new details</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Email format was not valid</td>
 </tr>
 <tr>
 <td>404</td>
@@ -1381,7 +1395,7 @@ Authenticated endpoint.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
+        </span><span class="s2">"current-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing in request"</span><span class="w">
         </span><span class="s2">"new-password"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Password not complex enough"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1477,6 +1491,16 @@ and belongs to a user account.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
+<p>Example response [400]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"email"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Field was missing"</span><span class="w">
+    </span><span class="p">}</span><span class="w"> 
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Example response [500]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1495,6 +1519,10 @@ and belongs to a user account.</p>
 <tr>
 <td>200</td>
 <td>Password reset token generated (if the email exists)</td>
+</tr>
+<tr>
+<td>400</td>
+<td>Email field was missing</td>
 </tr>
 <tr>
 <td>500</td>
@@ -1639,6 +1667,14 @@ endpoint), it is not recommended.</p>
     </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
+<p>Example response[404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Invalid token"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Example response [500]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -1661,6 +1697,10 @@ endpoint), it is not recommended.</p>
 <tr>
 <td>400</td>
 <td>Password was not complex enough or the confirmation did not match</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Reset token was not found</td>
 </tr>
 <tr>
 <td>500</td>
@@ -1981,7 +2021,7 @@ Authenticated endpoint.
 for the user in the specified match. By default, the user will be in their own
 party, therefore the <code>party_owner_id</code> will be the user ID.</p>
 
-<p>In addition, a <a href="#partytoken"><code>PartyToken</code></a> is also created. This token can be
+<p>In addition, a <a href="#party"><code>Party</code></a> is also created. The party token can be
 used to invite other users to your own party. It is deleted once the user joins
 a party owned by another user.</p>
 <h3 id='http-request-5'>HTTP Request</h3>
@@ -2043,6 +2083,16 @@ a party owned by another user.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match has already started"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Example response [404]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -2083,6 +2133,10 @@ a party owned by another user.</p>
 <td>Not logged in</td>
 </tr>
 <tr>
+<td>403</td>
+<td>Match has already started</td>
+</tr>
+<tr>
 <td>404</td>
 <td>Match was not found (or is invisible or removed)</td>
 </tr>
@@ -2099,6 +2153,8 @@ Authenticated endpoint.
 <p>Leave a match before it begins. This implies that the user will automatically
 leave any party they are in and their <a href="#matchparticipant"><code>MatchParticipant</code></a>
 record will be deleted.</p>
+
+<p>A party leader cannot leave until the party is empty.</p>
 <h3 id='http-request-6'>HTTP Request</h3>
 <p><code>POST /v1/match/leave</code></p>
 
@@ -2156,6 +2212,16 @@ record will be deleted.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"The party is not empty"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
 <p>Example response [404]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
@@ -2194,6 +2260,10 @@ record will be deleted.</p>
 <tr>
 <td>401</td>
 <td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>The party is not empty</td>
 </tr>
 <tr>
 <td>404</td>
@@ -2336,11 +2406,13 @@ functionality.</p>
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user16"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user16"</span><span class="p">]</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user16"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"party-token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"12345678"</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user48"</span><span class="p">,</span><span class="w">
-                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user45"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user91"</span><span class="p">]</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user45"</span><span class="p">,</span><span class="w"> </span><span class="s2">"user91"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"party-token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"abcdefgh"</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
     </span><span class="p">}</span><span class="w">
@@ -2397,7 +2469,7 @@ match is over (for historic purposes).</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
-    </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="mi">42</span><span class="w">
+    </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test1"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters-9'>Parameters</h3>
 <table><thead>
@@ -2419,8 +2491,8 @@ match is over (for historic purposes).</p>
 </tr>
 <tr>
 <td>party</td>
-<td>integer</td>
-<td>(Optional) ID of the leader of the party</td>
+<td>string</td>
+<td>(Optional) username of the leader of the party</td>
 </tr>
 </tbody></table>
 
@@ -2442,12 +2514,12 @@ submissions from other parties after the match.</p>
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
 <blockquote>
-<p>Example response (missing match) [404]:</p>
+<p>Example response (missing match) [403]:</p>
 </blockquote>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
-        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not finished"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -2472,6 +2544,10 @@ submissions from other parties after the match.</p>
 <tr>
 <td>200</td>
 <td>Party submission details</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Match not started/finished</td>
 </tr>
 <tr>
 <td>404</td>
@@ -2594,7 +2670,7 @@ the user in the case of individual matches.</p>
 </tr>
 <tr>
 <td>403</td>
-<td>The user is not the party leader and cannot change the submission</td>
+<td>The user is not the party leader and cannot change the submission or the match has finished</td>
 </tr>
 <tr>
 <td>404</td>
@@ -2611,7 +2687,7 @@ Authenticated endpoint.
 <p>Join a party by using the invite token provided by the party leader, or found
 through LFG if the party is public.</p>
 
-<p>By joining a party, the <code>PartyToken</code> record created for the user (technically
+<p>By joining a party, the <code>Party</code> record created for the user (technically
 in their own party) is deleted, and the <code>party_owner_id</code> of the
 <code>MatchParticipant</code> record is set to the ID of the leader of the new party.</p>
 <h3 id='http-request'>HTTP Request</h3>
@@ -2720,7 +2796,7 @@ Authenticated endpoint.
 <p>Leave a party. This can only be performed by non-leader members of the party
 and before the match starts.</p>
 
-<p>When the user leaves a party, a new <code>PartyToken</code> record is created to indicate
+<p>When the user leaves a party, a new <code>Party</code> record is created to indicate
 that they are in their own party, and the <code>party_owner_id</code> in their
 <code>MatchParticipant</code> record is set to their own ID.</p>
 <h3 id='http-request-2'>HTTP Request</h3>
@@ -2839,7 +2915,7 @@ Only the party leader can perform this action.
 
 <p>Kick another member from a party.</p>
 
-<p>By kicking them, a <code>PartyToken</code> record is created for the kicked member (as
+<p>By kicking them, a <code>Party</code> record is created for the kicked member (as
 they are now considered to be in their own party), and the <code>party_owner_id</code>
 attribute in their <code>MatchParticipant</code> record is set to their own ID.</p>
 <h3 id='http-request-3'>HTTP Request</h3>
