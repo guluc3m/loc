@@ -57,8 +57,8 @@ Create a new user record in the server.
 
 ```json
 {
-    "status": "error",
-    "message": "A user with the specified details already exists"
+    "status": "fail",
+    "data": "A user with the specified details already exists"
 }
 ```
 
@@ -262,6 +262,17 @@ Update profile details of the currently logged in user.
 }
 ```
 
+> Example response [400]:
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "email": "Invalid email"
+    }
+}
+```
+
 > Example response [404]:
 
 ```json
@@ -285,6 +296,7 @@ The following HTTP codes can be returned by this endpoint:
 | HTTP Code | Description |
 | --- | --- |
 | 200 | Profile was found, returns new details |
+| 400 | Email format was not valid |
 | 404 | Profile was not found (or removed) |
 | 500 | Server error |
 
@@ -484,7 +496,7 @@ Change current password (**only when the user is logged in**).
 {
     "status": "fail",
     "data": {
-        "password": "Field was missing in request"
+        "current-password": "Field was missing in request"
         "new-password": "Password not complex enough"
     }
 }
@@ -563,6 +575,17 @@ and belongs to a user account.
 }
 ```
 
+> Example response [400]:
+
+```json
+{
+    "status": "success",
+    "data": {
+        "email": "Field was missing"
+    } 
+}
+```
+
 > Example response [500]:
 
 ```json
@@ -578,6 +601,7 @@ The following HTTP codes can be returned by this endpoint:
 | HTTP Code | Description |
 | --- | --- |
 | 200 | Password reset token generated (if the email exists) |
+| 400 | Email field was missing |
 | 500 | Server error |
 
 
@@ -701,6 +725,15 @@ endpoint), it is not recommended.
     }
 ```
 
+> Example response[404]:
+
+```json
+{
+    "status": "error",
+    "message": "Invalid token"
+}
+```
+
 > Example response [500]:
 
 ```json
@@ -717,4 +750,5 @@ The following HTTP codes can be returned by this endpoint:
 | --- | --- |
 | 200 | Password has been changed |
 | 400 | Password was not complex enough or the confirmation did not match |
+| 404 | Reset token was not found |
 | 500 | Server error |

@@ -343,6 +343,17 @@ a party owned by another user.
 }
 ```
 
+> Example response [403]:
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "match": "Match has already started"
+    }
+}
+```
+
 > Example response [404]:
 
 ```json
@@ -372,6 +383,7 @@ The following HTTP codes can be returned by this endpoint:
 | 200 | User joined the match, returns party token |
 | 400 | Some parameters are missing or incomplete (indicated in response) |
 | 401 | Not logged in |
+| 403 | Match has already started |
 | 404 | Match was not found (or is invisible or removed) |
 | 409 | The user already joined the match in the past |
 
@@ -385,6 +397,8 @@ Authenticated endpoint.
 Leave a match before it begins. This implies that the user will automatically
 leave any party they are in and their [`MatchParticipant`](#matchparticipant)
 record will be deleted.
+
+A party leader cannot leave until the party is empty.
 
 ### HTTP Request
 
@@ -437,6 +451,17 @@ record will be deleted.
 }
 ```
 
+> Example response [403]:
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "match": "The party is not empty"
+    }
+}
+```
+
 > Example response [404]:
 
 ```json
@@ -466,6 +491,7 @@ The following HTTP codes can be returned by this endpoint:
 | 200 | User left the match (and any party they were in) |
 | 400 | Some parameters are missing or incomplete (indicated in response) |
 | 401 | Not logged in |
+| 403 | The party is not empty |
 | 404 | Match was not found (or is invisible or removed) |
 | 409 | The user already left the match in the past |
 
@@ -585,11 +611,13 @@ functionality.
         "list": [
             {
                 "leader": "user16",
-                "members": ["user16"]
+                "members": ["user16"],
+                "party-token": "12345678"
             },
             {
                 "leader": "user48",
-                "members": ["user45", "user91"]
+                "members": ["user45", "user91"],
+                "party-token": "abcdefgh"
             }
         ] 
     }
@@ -643,7 +671,7 @@ match is over (for historic purposes).
 ```json
 {
     "match": "test-match"
-    "party": 42
+    "party": "test1"
 }
 ```
 
@@ -653,7 +681,7 @@ match is over (for historic purposes).
 | --- | --- | --- |
 | token | string | JSON Web Token (obtained from `/v1/account/login`) |
 | match | string | Unique slug of the match |
-| party | integer | (Optional) ID of the leader of the party |
+| party | string | (Optional) username of the leader of the party |
 
 **Note**: the JWT can be omitted if accessing submissions after the match,
 and the party parameter can be skipped if requesting the user's own party
@@ -676,13 +704,13 @@ submissions from other parties after the match.
 }
 ```
 
-> Example response (missing match) [404]:
+> Example response (missing match) [403]:
 
 ```json
 {
     "status": "fail",
     "data": {
-        "match": "Match not found"
+        "match": "Match not finished"
     }
 }
 ```
@@ -703,6 +731,7 @@ The following HTTP codes can be returned by this endpoint:
 | HTTP Code | Description |
 | --- | --- |
 | 200 | Party submission details |
+| 403 | Match not started/finished |
 | 404 | Match or party were not found (or invisible or removed) |
 
 
@@ -796,5 +825,5 @@ The following HTTP codes can be returned by this endpoint:
 | --- | --- |
 | 200 | New submission details |
 | 401 | User not logged in |
-| 403 | The user is not the party leader and cannot change the submission |
+| 403 | The user is not the party leader and cannot change the submission or the match has finished |
 | 404 | Match was not found (or is invisible or removed) |
