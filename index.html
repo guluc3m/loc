@@ -222,6 +222,9 @@
             <a href="#api-responses" class="toc-h1 toc-link" data-title="API responses">API responses</a>
           </li>
           <li>
+            <a href="#date-format" class="toc-h1 toc-link" data-title="Date format">Date format</a>
+          </li>
+          <li>
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
@@ -414,6 +417,14 @@
 by GUL-UC3M.</p>
 <h1 id='api-responses'>API responses</h1>
 <p>Each API endpoint follows the <a href="https://labs.omniti.com/labs/jsend">JSend specification</a>, released under a <a href="https://labs.omniti.com/labs/jsend/wiki/License">modified BSD License</a>.</p>
+<h1 id='date-format'>Date format</h1>
+<aside class="notice">
+All dates follow the ISO 8601 format: <strong>YYYY-MM-DD HH:MM:SS</strong>.
+</aside>
+
+<p>When sending or receiving dates from the server, note that these are stored
+as <strong>UTC timestamps</strong>, therefore it is up to the client to parse these dates
+accordingly.</p>
 <h1 id='authentication'>Authentication</h1>
 <p>Authentication in the League of Code API is performed by means of <a href="https://jwt.io/">JSON Web
 Tokens</a>. For each authenticated endpoint, a <code>token</code> parameter
@@ -1207,14 +1218,8 @@ Authenticated endpoint.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1291,14 +1296,8 @@ Authenticated endpoint.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -1888,8 +1887,8 @@ long description of the match if it has not yet started.</p>
         </span><span class="s2">"long-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description of the match"</span><span class="w">
         </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"present-match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -1904,8 +1903,8 @@ long description of the match if it has not yet started.</p>
         </span><span class="s2">"short-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Prepare for the future"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-01 00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2019-01-05 00:00"</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-        </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"min-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"max-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"future-match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -3623,14 +3622,8 @@ as well as the total number of pages.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -3693,14 +3686,8 @@ as well as the total number of pages.
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="w">
-        </span><span class="p">},</span><span class="w">
-        </span><span class="p">{</span><span class="w">
-            </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"follow-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-02 00:00"</span><span class="w">
-        </span><span class="p">}</span><span class="w">
+        </span><span class="s2">"friend_a"</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"friend_b"</span><span class="p">,</span><span class="w">
     </span><span class="p">]</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre>
@@ -4049,9 +4036,10 @@ Authenticated endpoint.
     </span><span class="s2">"long-description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"This is a long description"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 00:00"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"end-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-05 00:00"</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"min-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
-    </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
+    </span><span class="s2">"min-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"max-members"</span><span class="p">:</span><span class="w"> </span><span class="mi">5</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"custom-slug"</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters'>Parameters</h3>
 <table><thead>
@@ -4092,12 +4080,12 @@ Authenticated endpoint.
 <td>Ending date(time) of the match</td>
 </tr>
 <tr>
-<td>min-team</td>
+<td>min-members</td>
 <td>integer</td>
 <td>Minimum number of members required in a party</td>
 </tr>
 <tr>
-<td>max-team</td>
+<td>max-members</td>
 <td>integer</td>
 <td>Maximum number of members allowed in a party</td>
 </tr>
@@ -4105,6 +4093,11 @@ Authenticated endpoint.
 <td>is-visible</td>
 <td>boolean</td>
 <td>Whether the match can be found when querying the matches</td>
+</tr>
+<tr>
+<td>slug</td>
+<td>str</td>
+<td>Optional slug to override the one generated from the title</td>
 </tr>
 </tbody></table>
 <h3 id='http-response'>HTTP Response</h3>
@@ -4232,6 +4225,7 @@ used to modify the specific attribute.</p>
 <pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
     </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"start-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-10-10 10:00:00"</span><span class="p">,</span><span class="w">
         </span><span class="s2">"slug"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
@@ -4292,7 +4286,7 @@ used to modify the specific attribute.</p>
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>Match modified, returns match slug</td>
+<td>Match modified, returns new match details</td>
 </tr>
 <tr>
 <td>400</td>
@@ -4690,10 +4684,22 @@ as well as the total number of pages.
         </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
         </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
-            </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user2"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user3"</span><span class="p">,</span><span class="w">
-            </span><span class="s2">"user4"</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user1"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 10:00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user2"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 10:00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user3"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 10:00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"username"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user4"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"delete-date"</span><span class="p">:</span><span class="w"> </span><span class="s2">"2017-01-01 10:00:00"</span><span class="w">
+            </span><span class="p">},</span><span class="w">
         </span><span class="p">]</span><span class="w">
     </span><span class="p">}</span><span class="w">
 </span><span class="p">}</span><span class="w">
