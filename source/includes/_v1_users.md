@@ -88,14 +88,8 @@ Get users that follow the specified user.
 {
     "status": "success",
     "data": [
-        {
-            "username": "friend_a",
-            "follow-date": "2017-01-01 00:00"
-        },
-        {
-            "username": "friend_b",
-            "follow-date": "2017-01-02 00:00"
-        }
+        "friend_a",
+        "friend_b",
     ]
 }
 ```
@@ -149,14 +143,8 @@ Get users followed by the specified user.
 {
     "status": "success",
     "data": [
-        {
-            "username": "friend_a",
-            "follow-date": "2017-01-01 00:00"
-        },
-        {
-            "username": "friend_b",
-            "follow-date": "2017-01-02 00:00"
-        }
+        "friend_a",
+        "friend_b",
     ]
 }
 ```

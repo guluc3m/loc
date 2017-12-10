@@ -30,9 +30,10 @@ Create a new match.
     "long-description": "This is a long description",
     "start-date": "2017-01-01 00:00",
     "end-date": "2017-01-05 00:00",
-    "min-team": 1,
-    "max-team": 5,
-    "is-visible": false
+    "min-members": 1,
+    "max-members": 5,
+    "is-visible": false,
+    "slug": "custom-slug"
 }
 ```
 
@@ -46,9 +47,10 @@ Create a new match.
 | long-description | string | Long description for the match |
 | start-date | date | Starting date(time) of the match |
 | end-date | date | Ending date(time) of the match |
-| min-team | integer | Minimum number of members required in a party |
-| max-team | integer | Maximum number of members allowed in a party |
+| min-members | integer | Minimum number of members required in a party |
+| max-members | integer | Maximum number of members allowed in a party |
 | is-visible | boolean | Whether the match can be found when querying the matches |
+| slug | str | Optional slug to override the one generated from the title |
 
 ### HTTP Response
 
@@ -157,6 +159,7 @@ used to modify the specific attribute.
 {
     "status": "success",
     "data": {
+        "start-date": "2017-10-10 10:00:00",
         "slug": "test-match"
     }
 }
@@ -218,7 +221,7 @@ The following HTTP codes can be returned by this endpoint:
 
 | HTTP Code | Description |
 | --- | --- |
-| 200 | Match modified, returns match slug |
+| 200 | Match modified, returns new match details |
 | 400 | Some parameters are missing or incomplete (indicated in response) |
 | 401 | Not logged in |
 | 403 | Not an administrator |
@@ -545,10 +548,22 @@ as well as the total number of pages.
         "page": 1,
         "pages": 1,
         "list": [
-            "user1",
-            "user2",
-            "user3",
-            "user4"
+            {
+                "username": "user1",
+                "delete-date": "2017-01-01 10:00:00"
+            },
+            {
+                "username": "user2",
+                "delete-date": "2017-01-01 10:00:00"
+            },
+            {
+                "username": "user3",
+                "delete-date": "2017-01-01 10:00:00"
+            },
+            {
+                "username": "user4",
+                "delete-date": "2017-01-01 10:00:00"
+            },
         ]
     }
 }

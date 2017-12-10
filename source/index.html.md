@@ -28,6 +28,16 @@ by GUL-UC3M.
 
 Each API endpoint follows the [JSend specification](https://labs.omniti.com/labs/jsend), released under a [modified BSD License](https://labs.omniti.com/labs/jsend/wiki/License).
 
+# Date format
+
+<aside class="notice">
+All dates follow the ISO 8601 format: <strong>YYYY-MM-DD HH:MM:SS</strong>.
+</aside>
+
+When sending or receiving dates from the server, note that these are stored
+as **UTC timestamps**, therefore it is up to the client to parse these dates
+accordingly.
+
 # Authentication
 
 Authentication in the League of Code API is performed by means of [JSON Web

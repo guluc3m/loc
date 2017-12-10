@@ -168,8 +168,8 @@ long description of the match if it has not yet started.
         "long-description": "This is a long description of the match"
         "start-date": "2017-01-01 00:00",
         "end-date": "2017-01-05 00:00",
-        "min-team": 1,
-        "max-team": 2,
+        "min-members": 1,
+        "max-members": 2,
         "slug": "present-match"
     }
 }
@@ -185,8 +185,8 @@ long description of the match if it has not yet started.
         "short-description": "Prepare for the future",
         "start-date": "2019-01-01 00:00",
         "end-date": "2019-01-05 00:00",
-        "min-team": 1,
-        "max-team": 4,
+        "min-members": 1,
+        "max-members": 4,
         "slug": "future-match"
     }
 }
