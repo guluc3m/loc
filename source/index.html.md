@@ -7,6 +7,7 @@ toc_footers:
   - © Grupo de Usuarios de Linux de la Universidad Carlos III de Madrid. 2017
 
 includes:
+  - common
   - models 
   - v1_account
   - v1_matches
