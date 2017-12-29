@@ -137,6 +137,7 @@ Note that changing the title also changes the slug.
     "token": "JWT_TOKEN",
     "match": "current-match-slug",
     "max-team": 4,
+    "leaderboard": true,
     "is-visible": false
 }
 ```
@@ -147,6 +148,7 @@ Note that changing the title also changes the slug.
 | --- | --- | --- |
 | token | string | JSON Web Token (obtained from `/v1/account/login`) |
 | match | string | Unique slug of the match to modify |
+| leaderboard | boolean | (Optional) Whether to show the leaderboard |
 
 Every parameter shown in the [Create a match](#create-a-match) endpoint can be
 used to modify the specific attribute.
@@ -227,6 +229,158 @@ The following HTTP codes can be returned by this endpoint:
 | 403 | Not an administrator |
 | 404 | Match does not exist |
 | 409 | A match with that slug/title already exists |
+
+
+## Get match leaderboard
+
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+Get the current leaderboard of the specified match.
+
+This endpoint does not check if the leaderboard is posted or not.
+
+### HTTP Request
+
+`GET /v1/admin/match-leaderboard`
+
+> Example request:
+
+```json
+{
+    "token": "JWT_TOKEN",
+    "match": "test-match",
+    "page": 1
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | JSON Web Token (obtained from `/v1/account/login`) |
+| match | string | Unique slug of the match to get the leaderboard for |
+| page | integer | Page number to fetch (defaults to `1`) |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": {
+        "page": 1,
+        "pages": 3,
+        "list": [
+            {
+                "leader": "user32",
+                "members": ["user32", "userc"],
+                "position": 1
+            },
+            {
+                "leader": "userc",
+                "members": ["userc"],
+                "position": 2
+            }
+        ] 
+    }
+}
+```
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Ordered party list including the position of the party |
+
+
+
+## Set match leaderboard
+
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+Update the leaderboard of the match by setting positions for each participating
+party.
+
+Note that this only sets the position for the specified parties, and will not
+modify already set positions in other parties.
+
+### HTTP Request
+
+`PUT /v1/admin/match-leaderboard`
+
+> Example request:
+
+```json
+{
+    "token": "JWT_TOKEN",
+    "match": "current-match-slug",
+    "positions": [
+        {
+            "party": "party-leader-1",
+            "position": 2,
+        },
+        {
+            "party": "party-leader-3",
+            "position": 1,
+        }
+    ]
+}
+```
+
+### Parameters
+
+| Parameter | Type | Description |
+| --- | --- | --- |
+| token | string | JSON Web Token (obtained from `/v1/account/login`) |
+| match | string | Unique slug of the match to delete |
+| positions | list[json] | List of objects specifying the party to update and its new position |
+
+### HTTP Response
+
+> Example response [200]:
+
+```json
+{
+    "status": "success",
+    "data": [
+        "party-leader1", "party-leader-2"
+    ]
+}
+```
+
+> Example response [403]:
+
+```json
+{
+    "status": "error",
+    "message": "You are not an administrator"
+}
+```
+
+> Example response [404]:
+
+```json
+{
+    "status": "fail",
+    "data": {
+        "match": "Match not found"
+    }
+}
+```
+
+The following HTTP codes can be returned by this endpoint:
+
+| HTTP Code | Description |
+| --- | --- |
+| 200 | Match leaderboard modified, returns list of modified parties |
+| 401 | Not logged in |
+| 403 | Not an administrator |
+| 404 | Match does not exist |
 
 
 ## Delete/Undelete a match

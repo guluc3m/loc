@@ -258,10 +258,12 @@ as well as the total number of pages.
             {
                 "leader": "user32",
                 "members": ["user32", "userc"],
+                "position": 1
             },
             {
                 "leader": "userc",
                 "members": ["userc"],
+                "position": 2
             }
         ] 
     }
@@ -272,7 +274,7 @@ The following HTTP codes can be returned by this endpoint:
 
 | HTTP Code | Description |
 | --- | --- |
-| 200 | Ordered party list (list may be empty if the match has not finished) |
+| 200 | Ordered party list including the position of the party (list may be empty if the match has not finished) |
 
 
 
