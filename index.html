@@ -228,6 +228,14 @@
             <a href="#authentication" class="toc-h1 toc-link" data-title="Authentication">Authentication</a>
           </li>
           <li>
+            <a href="#common-endpoints" class="toc-h1 toc-link" data-title="Common endpoints">Common endpoints</a>
+              <ul class="toc-list-h2">
+                  <li>
+                    <a href="#obtain-server-information" class="toc-h2 toc-link" data-title="Obtain server information">Obtain server information</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
             <a href="#api-models" class="toc-h1 toc-link" data-title="API models">API models</a>
               <ul class="toc-list-h2">
                   <li>
@@ -385,6 +393,12 @@
                     <a href="#modify-a-match" class="toc-h2 toc-link" data-title="Modify a match">Modify a match</a>
                   </li>
                   <li>
+                    <a href="#get-match-leaderboard" class="toc-h2 toc-link" data-title="Get match leaderboard">Get match leaderboard</a>
+                  </li>
+                  <li>
+                    <a href="#set-match-leaderboard" class="toc-h2 toc-link" data-title="Set match leaderboard">Set match leaderboard</a>
+                  </li>
+                  <li>
                     <a href="#delete-undelete-a-match" class="toc-h2 toc-link" data-title="Delete/Undelete a match">Delete/Undelete a match</a>
                   </li>
                   <li>
@@ -460,6 +474,44 @@ can be obtained from the <a href="#login"><code>/v1/account/login</code></a> end
 <p>For each authenticated endpoint, the server may reply with a <code>401</code> code if the
 JWT sent is not valid or a <code>500</code> code if there were coding errors while
 (de)coding de token.</p>
+<h1 id='common-endpoints'>Common endpoints</h1>
+<p>The following endpoints are common and independent of the API version used.</p>
+<h2 id='obtain-server-information'>Obtain server information</h2>
+<p>Get certain details from the server. This includes the following:</p>
+
+<ul>
+<li>Short server description</li>
+<li>Server version</li>
+<li>Implemented API versions</li>
+</ul>
+<h3 id='http-request'>HTTP Request</h3>
+<p><code>GET /info</code></p>
+<h3 id='http-response'>HTTP Response</h3>
+<blockquote>
+<p>Example response:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"api"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"v1"</span><span class="w">
+    </span><span class="p">],</span><span class="w">
+    </span><span class="s2">"description"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Reference LoC server implementation"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"version"</span><span class="p">:</span><span class="w"> </span><span class="s2">"0.1.0"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Returns server information</td>
+</tr>
+</tbody></table>
 <h1 id='api-models'>API models</h1>
 <p>The relations of the database models can be seen in the next image:</p>
 
@@ -1989,10 +2041,12 @@ as well as the total number of pages.
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user32"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user32"</span><span class="p">,</span><span class="w"> </span><span class="s2">"userc"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
             </span><span class="p">},</span><span class="w">
             </span><span class="p">{</span><span class="w">
                 </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"userc"</span><span class="p">,</span><span class="w">
                 </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"userc"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
             </span><span class="p">}</span><span class="w">
         </span><span class="p">]</span><span class="w"> 
     </span><span class="p">}</span><span class="w">
@@ -2008,7 +2062,7 @@ as well as the total number of pages.
 </thead><tbody>
 <tr>
 <td>200</td>
-<td>Ordered party list (list may be empty if the match has not finished)</td>
+<td>Ordered party list including the position of the party (list may be empty if the match has not finished)</td>
 </tr>
 </tbody></table>
 <h2 id='join-a-match'>Join a match</h2>
@@ -4194,6 +4248,7 @@ Authenticated endpoint.
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current-match-slug"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"max-team"</span><span class="p">:</span><span class="w"> </span><span class="mi">4</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"leaderboard"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="p">,</span><span class="w">
     </span><span class="s2">"is-visible"</span><span class="p">:</span><span class="w"> </span><span class="kc">false</span><span class="w">
 </span><span class="p">}</span><span class="w">
 </span></code></pre><h3 id='parameters-2'>Parameters</h3>
@@ -4213,6 +4268,11 @@ Authenticated endpoint.
 <td>match</td>
 <td>string</td>
 <td>Unique slug of the match to modify</td>
+</tr>
+<tr>
+<td>leaderboard</td>
+<td>boolean</td>
+<td>(Optional) Whether to show the leaderboard</td>
 </tr>
 </tbody></table>
 
@@ -4309,6 +4369,194 @@ used to modify the specific attribute.</p>
 <td>A match with that slug/title already exists</td>
 </tr>
 </tbody></table>
+<h2 id='get-match-leaderboard'>Get match leaderboard</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Get the current leaderboard of the specified match.</p>
+
+<p>This endpoint does not check if the leaderboard is posted or not.</p>
+<h3 id='http-request-3'>HTTP Request</h3>
+<p><code>GET /v1/admin/match-leaderboard</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"test-match"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to get the leaderboard for</td>
+</tr>
+<tr>
+<td>page</td>
+<td>integer</td>
+<td>Page number to fetch (defaults to <code>1</code>)</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-3'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"pages"</span><span class="p">:</span><span class="w"> </span><span class="mi">3</span><span class="p">,</span><span class="w">
+        </span><span class="s2">"list"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"user32"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"user32"</span><span class="p">,</span><span class="w"> </span><span class="s2">"userc"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
+            </span><span class="p">},</span><span class="w">
+            </span><span class="p">{</span><span class="w">
+                </span><span class="s2">"leader"</span><span class="p">:</span><span class="w"> </span><span class="s2">"userc"</span><span class="p">,</span><span class="w">
+                </span><span class="s2">"members"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="s2">"userc"</span><span class="p">],</span><span class="w">
+                </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="w">
+            </span><span class="p">}</span><span class="w">
+        </span><span class="p">]</span><span class="w"> 
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Ordered party list including the position of the party</td>
+</tr>
+</tbody></table>
+<h2 id='set-match-leaderboard'>Set match leaderboard</h2>
+<aside class="notice">
+Authenticated endpoint.
+</aside>
+
+<p>Update the leaderboard of the match by setting positions for each participating
+party.</p>
+
+<p>Note that this only sets the position for the specified parties, and will not
+modify already set positions in other parties.</p>
+<h3 id='http-request-4'>HTTP Request</h3>
+<p><code>PUT /v1/admin/match-leaderboard</code></p>
+
+<blockquote>
+<p>Example request:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current-match-slug"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"positions"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="s2">"party-leader-1"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">2</span><span class="p">,</span><span class="w">
+        </span><span class="p">},</span><span class="w">
+        </span><span class="p">{</span><span class="w">
+            </span><span class="s2">"party"</span><span class="p">:</span><span class="w"> </span><span class="s2">"party-leader-3"</span><span class="p">,</span><span class="w">
+            </span><span class="s2">"position"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="p">,</span><span class="w">
+        </span><span class="p">}</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+<table><thead>
+<tr>
+<th>Parameter</th>
+<th>Type</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>token</td>
+<td>string</td>
+<td>JSON Web Token (obtained from <code>/v1/account/login</code>)</td>
+</tr>
+<tr>
+<td>match</td>
+<td>string</td>
+<td>Unique slug of the match to delete</td>
+</tr>
+<tr>
+<td>positions</td>
+<td>list[json]</td>
+<td>List of objects specifying the party to update and its new position</td>
+</tr>
+</tbody></table>
+<h3 id='http-response-4'>HTTP Response</h3>
+<blockquote>
+<p>Example response [200]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"success"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">[</span><span class="w">
+        </span><span class="s2">"party-leader1"</span><span class="p">,</span><span class="w"> </span><span class="s2">"party-leader-2"</span><span class="w">
+    </span><span class="p">]</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [403]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"error"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"message"</span><span class="p">:</span><span class="w"> </span><span class="s2">"You are not an administrator"</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<blockquote>
+<p>Example response [404]:</p>
+</blockquote>
+<pre class="highlight json tab-json"><code><span class="p">{</span><span class="w">
+    </span><span class="s2">"status"</span><span class="p">:</span><span class="w"> </span><span class="s2">"fail"</span><span class="p">,</span><span class="w">
+    </span><span class="s2">"data"</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w">
+        </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"Match not found"</span><span class="w">
+    </span><span class="p">}</span><span class="w">
+</span><span class="p">}</span><span class="w">
+</span></code></pre>
+<p>The following HTTP codes can be returned by this endpoint:</p>
+
+<table><thead>
+<tr>
+<th>HTTP Code</th>
+<th>Description</th>
+</tr>
+</thead><tbody>
+<tr>
+<td>200</td>
+<td>Match leaderboard modified, returns list of modified parties</td>
+</tr>
+<tr>
+<td>401</td>
+<td>Not logged in</td>
+</tr>
+<tr>
+<td>403</td>
+<td>Not an administrator</td>
+</tr>
+<tr>
+<td>404</td>
+<td>Match does not exist</td>
+</tr>
+</tbody></table>
 <h2 id='delete-undelete-a-match'>Delete/Undelete a match</h2>
 <aside class="notice">
 Authenticated endpoint.
@@ -4317,7 +4565,7 @@ Authenticated endpoint.
 <p>Delete/Undelete a match.</p>
 
 <p>This is a soft delete and can be undone.</p>
-<h3 id='http-request-3'>HTTP Request</h3>
+<h3 id='http-request-5'>HTTP Request</h3>
 <p><code>PUT /v1/admin/match-delete</code></p>
 
 <blockquote>
@@ -4328,7 +4576,7 @@ Authenticated endpoint.
     </span><span class="s2">"match"</span><span class="p">:</span><span class="w"> </span><span class="s2">"current-match-slug"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-3'>Parameters</h3>
+</span></code></pre><h3 id='parameters-5'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4352,7 +4600,7 @@ Authenticated endpoint.
 <td>Whether to delete (true) or undelete (false) a match</td>
 </tr>
 </tbody></table>
-<h3 id='http-response-3'>HTTP Response</h3>
+<h3 id='http-response-5'>HTTP Response</h3>
 <blockquote>
 <p>Example response (delete) [200]:</p>
 </blockquote>
@@ -4449,7 +4697,7 @@ Authenticated endpoint.
 The list of matches is paginated and the response includes the current page
 as well as the total number of pages.
 </aside>
-<h3 id='http-request-4'>HTTP Request</h3>
+<h3 id='http-request-6'>HTTP Request</h3>
 <p><code>GET /v1/admin/deleted-matches</code></p>
 
 <blockquote>
@@ -4459,7 +4707,7 @@ as well as the total number of pages.
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-4'>Parameters</h3>
+</span></code></pre><h3 id='parameters-6'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4478,7 +4726,7 @@ as well as the total number of pages.
 <td>Page number to fetch (defaults to <code>1</code>)</td>
 </tr>
 </tbody></table>
-<h3 id='http-response-4'>HTTP Response</h3>
+<h3 id='http-response-6'>HTTP Response</h3>
 <blockquote>
 <p>Example response [200]:</p>
 </blockquote>
@@ -4550,7 +4798,7 @@ Authenticated endpoint.
 The list of users is paginated and the response includes the current page
 as well as the total number of pages.
 </aside>
-<h3 id='http-request-5'>HTTP Request</h3>
+<h3 id='http-request-7'>HTTP Request</h3>
 <p><code>GET /v1/admin/users</code></p>
 
 <blockquote>
@@ -4560,7 +4808,7 @@ as well as the total number of pages.
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-5'>Parameters</h3>
+</span></code></pre><h3 id='parameters-7'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4579,7 +4827,7 @@ as well as the total number of pages.
 <td>Page number to fetch (defaults to <code>1</code>)</td>
 </tr>
 </tbody></table>
-<h3 id='http-response-5'>HTTP Response</h3>
+<h3 id='http-response-7'>HTTP Response</h3>
 <blockquote>
 <p>Example response [200]:</p>
 </blockquote>
@@ -4645,7 +4893,7 @@ Authenticated endpoint.
 The list of users is paginated and the response includes the current page
 as well as the total number of pages.
 </aside>
-<h3 id='http-request-6'>HTTP Request</h3>
+<h3 id='http-request-8'>HTTP Request</h3>
 <p><code>GET /v1/admin/deleted-users</code></p>
 
 <blockquote>
@@ -4655,7 +4903,7 @@ as well as the total number of pages.
     </span><span class="s2">"token"</span><span class="p">:</span><span class="w"> </span><span class="s2">"JWT_TOKEN"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"page"</span><span class="p">:</span><span class="w"> </span><span class="mi">1</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-6'>Parameters</h3>
+</span></code></pre><h3 id='parameters-8'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4674,7 +4922,7 @@ as well as the total number of pages.
 <td>Page number to fetch (defaults to <code>1</code>)</td>
 </tr>
 </tbody></table>
-<h3 id='http-response-6'>HTTP Response</h3>
+<h3 id='http-response-8'>HTTP Response</h3>
 <blockquote>
 <p>Example response [200]:</p>
 </blockquote>
@@ -4747,7 +4995,7 @@ Authenticated endpoint.
 </aside>
 
 <p>Ban/Unban a user.</p>
-<h3 id='http-request-7'>HTTP Request</h3>
+<h3 id='http-request-9'>HTTP Request</h3>
 <p><code>PUT /v1/admin/user-delete</code></p>
 
 <blockquote>
@@ -4758,7 +5006,7 @@ Authenticated endpoint.
     </span><span class="s2">"user"</span><span class="p">:</span><span class="w"> </span><span class="s2">"username-to-ban"</span><span class="p">,</span><span class="w">
     </span><span class="s2">"delete"</span><span class="p">:</span><span class="w"> </span><span class="kc">true</span><span class="w">
 </span><span class="p">}</span><span class="w">
-</span></code></pre><h3 id='parameters-7'>Parameters</h3>
+</span></code></pre><h3 id='parameters-9'>Parameters</h3>
 <table><thead>
 <tr>
 <th>Parameter</th>
@@ -4782,7 +5030,7 @@ Authenticated endpoint.
 <td>Whether to delete (true) or undelete (false) a match</td>
 </tr>
 </tbody></table>
-<h3 id='http-response-7'>HTTP Response</h3>
+<h3 id='http-response-9'>HTTP Response</h3>
 <blockquote>
 <p>Example response (delete) [200]:</p>
 </blockquote>
